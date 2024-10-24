@@ -5,7 +5,6 @@ import locationData from '../assets/locationData.json'
 import {ElMessage} from "element-plus";
 import Heard from "../components/heard.vue";
 let map = null;
-const searchInput = ref('');
 const geocoder = ref(null);
 const marker =ref(null);
 const provinces = ref([]); // 省份列表
@@ -16,22 +15,23 @@ const form = ref({
   province: '',
   city: '',
   district: '',
-  address: ''
+  address: '',
+  rooms: [{
+    roomName: '',
+    roomCount: 1,
+    bedType: '',
+    bedCount: 1,
+    facilities: []
+  }]
 })
-const roomName=ref('');
 let allAddress=ref('');
 const beds =['单人床','双人床'];
-const rooms = ref([{
-  roomName: '',
-  bedType: '',
-  bedCount: 1,
-  facilities: []
-}]);
 
 // 增加房间
 const addRoom = () => {
-  rooms.value.push({
+  form.value.rooms.push({
     roomName: '',
+    roomCount: 1,
     bedType: '',
     bedCount: 1,
     facilities: []
@@ -63,11 +63,12 @@ onMounted(() => {
           map:map,
           position:[116.397428,39.90923]
         });
-        provinces.value = locationData.map(province=>province.province);
+
       })
       .catch((e) => {
         console.log(e);
       });
+  provinces.value = locationData.map(province=>province.province);
 });
 
 onUnmounted(() => {
@@ -125,6 +126,9 @@ const handleExceed = () => {
 
   ElMessage.error('上传图片数量达到上限')
 }
+const onSubmit = () => {
+
+    }
 </script>
 
 <template>
@@ -159,56 +163,58 @@ const handleExceed = () => {
     </el-form-item>
     <div id="container"></div>
     <h4>住房信息</h4>
-    <div class="root">
+    <div class="root" v-for="(room,index) in form.rooms" :key="index">
+      <h5>房间 {{ index + 1 }}</h5>
     <el-form-item label="房间名称">
-      <el-input v-model="roomName"></el-input>
+      <el-input v-model="room.roomName"></el-input>
     </el-form-item>
     <el-form-item label="房间数量">
-      <el-input-number></el-input-number>
+      <el-input-number v-model="room.roomCount"></el-input-number>
     </el-form-item>
     <el-form-item label="房间图图片">
       <el-upload list-type="picture-card" :auto-upload="false" accept="image/*" :before-upload="handlePictureUpdate" :limit="1" :on-exceed="handleExceed"></el-upload>
     </el-form-item>
       <div class="bed">
      <el-form-item label="床类型">
-       <el-select>
+       <el-select v-model="room.bedType">
          <el-option v-for="bed in beds" :key="bed" :label="bed" :value="bed"></el-option>
        </el-select>
      </el-form-item>
-     <el-form-item label="床数量">
+     <el-form-item label="床数量" v-model="room.bedCount">
        <el-input-number></el-input-number>
      </el-form-item>
         </div>
       <h4>设施</h4>
-      <div class="function" v-for="(room,index) in rooms" :key="index">
-        <h5>房间 {{ index + 1 }}</h5>
+      <div class="function" >
+
      <el-form-item>
        <el-checkbox>无线网</el-checkbox>
      </el-form-item>
         <el-form-item>
-          <el-checkbox>有线网</el-checkbox>
+          <el-checkbox v-model="room.facilities">有线网</el-checkbox>
         </el-form-item>
         <el-form-item>
-          <el-checkbox>毛巾</el-checkbox>
+          <el-checkbox v-model="room.facilities">毛巾</el-checkbox>
         </el-form-item>
         <el-form-item>
-          <el-checkbox>拖鞋</el-checkbox>
+          <el-checkbox v-model="room.facilities">拖鞋</el-checkbox>
         </el-form-item>
         <el-form-item>
-          <el-checkbox>免费洗浴用品</el-checkbox>
+          <el-checkbox v-model="room.facilities">免费洗浴用品</el-checkbox>
         </el-form-item>
         <el-form-item>
-          <el-checkbox>空调</el-checkbox>
+          <el-checkbox v-model="room.facilities">空调</el-checkbox>
         </el-form-item>
         <el-form-item>
-          <el-checkbox>电视</el-checkbox>
+          <el-checkbox v-model="room.facilities">电视</el-checkbox>
         </el-form-item>
         <el-form-item>
-          <el-checkbox>厨房</el-checkbox>
+          <el-checkbox v-model="room.facilities">厨房</el-checkbox>
         </el-form-item>
       </div>
     </div>
     <el-button @click="addRoom">增加房间</el-button>
+    <el-button type="primary" @click="onSubmit">提交</el-button>
   </el-form>
   </div>
 </template>
