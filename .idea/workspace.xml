@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36e48345-8858-47b1-810f-9b1995180da5" name="更改" comment="" />
+    <list default="true" id="36e48345-8858-47b1-810f-9b1995180da5" name="更改" comment="addhotel1">
+      <changelist_data name="foi57" email="74851663+foi57@users.noreply.github.com" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +24,14 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="foi57 &lt;74851663+foi57@users.noreply.github.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -30,6 +40,7 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2ngOPZJCbIfJqs4VODcVSqP3mwL" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -49,9 +60,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.SpringbootApplication.executor": "Run",
     "com.codeium.enabled": "true",
+    "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "23",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/code/vue/hotel/vue/views",
+    "last_opened_file_path": "E:/code/vue/hotel",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -212,11 +224,24 @@
       <workItem from="1729645703455" duration="5619000" />
       <workItem from="1729669934972" duration="15441000" />
       <workItem from="1729737879742" duration="5517000" />
-      <workItem from="1729756105290" duration="3516000" />
+      <workItem from="1729756105290" duration="3971000" />
     </task>
+    <task id="LOCAL-00001" summary="addhotel1">
+      <option name="closed" value="true" />
+      <created>1729759860261</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1729759860261</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="addhotel1" />
+    <option name="LAST_COMMIT_MESSAGE" value="addhotel1" />
   </component>
 </project>
