@@ -1,0 +1,12 @@
+spring:
+    application:
+        name: springboot
+    datasource:
+     url: jdbc:mysql://localhost:3308/hotel
+     username: root
+     password: password
+     driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+    type-aliases-package: org.example.springboot.entity
+    mapper-locations: classpath:mapper/*.xml

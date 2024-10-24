@@ -1,0 +1,32 @@
+2024-10-22 16:39:42.010 [restartedMain] INFO  o.e.springboot.SpringbootApplication - Starting SpringbootApplication using Java 23 with PID 47480 (E:\code\vue\hotel\springboot\target\classes started by lenovo in E:\code\vue\hotel)
+2024-10-22 16:39:42.011 [restartedMain] INFO  o.e.springboot.SpringbootApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-22 16:39:43.100 [restartedMain] INFO  o.a.c.core.AprLifecycleListener - An older version [1.2.39] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.5]
+2024-10-22 16:39:43.100 [restartedMain] INFO  o.a.c.core.AprLifecycleListener - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+2024-10-22 16:39:43.130 [restartedMain] INFO  o.a.c.core.AprLifecycleListener - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+2024-10-22 16:39:43.139 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-22 16:39:43.142 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-22 16:39:43.142 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-10-22 16:39:43.191 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-22 16:39:43.327 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-22 16:39:43.725 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@55ae5512
+2024-10-22 16:39:43.727 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-22 16:39:43.779 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-22 16:39:43.850 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.1.Final
+2024-10-22 16:39:43.891 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-10-22 16:39:44.300 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.39
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2024-10-22 16:39:44.604 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-22 16:39:44.812 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-22 16:39:45.133 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-22 16:39:45.153 [restartedMain] INFO  o.e.springboot.SpringbootApplication - Started SpringbootApplication in 3.654 seconds (process running for 4.348)
+2024-10-22 16:39:49.501 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-22 16:39:49.661 [http-nio-8080-exec-1] INFO  o.e.s.Controller.UserController - [121, 111, 117, 114, 45, 118, 101, 114, 121, 45, 108, 111, 110, 103, 45, 115, 101, 99, 114, 101, 116, 45, 107, 101, 121, 45, 116, 104, 97, 116, 45, 105, 115, 45, 97, 116, 45, 108, 101, 97, 115, 116, 45, 50, 53, 54, 45, 98, 105, 116, 115, 45, 108, 111, 110, 103, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 100, 115, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 119, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97]
+2024-10-22 16:43:39.687 [http-nio-8080-exec-3] INFO  o.e.s.Controller.UserController - [121, 111, 117, 114, 45, 118, 101, 114, 121, 45, 108, 111, 110, 103, 45, 115, 101, 99, 114, 101, 116, 45, 107, 101, 121, 45, 116, 104, 97, 116, 45, 105, 115, 45, 97, 116, 45, 108, 101, 97, 115, 116, 45, 50, 53, 54, 45, 98, 105, 116, 115, 45, 108, 111, 110, 103, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 100, 115, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 119, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97]
+2024-10-22 16:45:26.128 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-10-22 16:45:26.176 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
