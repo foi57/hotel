@@ -1074,8 +1074,8 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="292" parent="1" name="hotel">
-      <LastIntrospectionLocalTimestamp>2024-10-22.03:12:13</LastIntrospectionLocalTimestamp>
-      <CollationName>utf8mb3_general_ci</CollationName>
+      <LastIntrospectionLocalTimestamp>2024-10-26.08:07:11</LastIntrospectionLocalTimestamp>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <user id="293" parent="1" name="root"/>
     <user id="294" parent="1" name="mysql.infoschema">
@@ -1100,77 +1100,218 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb3_general_ci</CollationName>
     </table>
-    <table id="299" parent="292" name="user">
+    <table id="299" parent="292" name="hotel_pictures">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb3_general_ci</CollationName>
     </table>
-    <column id="300" parent="298" name="id">
-      <AutoIncrement>1</AutoIncrement>
+    <table id="300" parent="292" name="picture">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </table>
+    <table id="301" parent="292" name="room">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </table>
+    <table id="302" parent="292" name="room_pictures">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </table>
+    <table id="303" parent="292" name="user">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </table>
+    <column id="304" parent="298" name="id">
+      <AutoIncrement>19</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="301" parent="298" name="name">
-      <DasType>varchar(255)|0s</DasType>
-      <NotNull>1</NotNull>
+    <column id="305" parent="298" name="userId">
+      <DasType>int|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="302" parent="298" name="Image">
+    <column id="306" parent="298" name="name">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </column>
-    <column id="303" parent="298" name="location">
+    <column id="307" parent="298" name="introduction">
       <DasType>varchar(255)|0s</DasType>
-      <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="304" parent="298" name="score">
+    <column id="308" parent="298" name="province">
       <DasType>varchar(255)|0s</DasType>
-      <NotNull>1</NotNull>
       <Position>5</Position>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </column>
-    <column id="305" parent="298" name="price">
-      <DasType>decimal(10)|0s</DasType>
-      <NotNull>1</NotNull>
+    <column id="309" parent="298" name="city">
+      <DasType>varchar(255)|0s</DasType>
       <Position>6</Position>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </column>
-    <index id="306" parent="298" name="PRIMARY">
+    <column id="310" parent="298" name="district">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>7</Position>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </column>
+    <column id="311" parent="298" name="address">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>8</Position>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </column>
+    <column id="312" parent="298" name="locations">
+      <DasType>json|0s</DasType>
+      <Position>9</Position>
+    </column>
+    <index id="313" parent="298" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="307" parent="298" name="PRIMARY">
+    <key id="314" parent="298" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="308" parent="299" name="id">
+    <column id="315" parent="299" name="id">
       <AutoIncrement>1</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="309" parent="299" name="userName">
-      <DasType>varchar(255)|0s</DasType>
-      <NotNull>1</NotNull>
+    <column id="316" parent="299" name="hotel_id">
+      <DasType>int|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="310" parent="299" name="email">
+    <column id="317" parent="299" name="picture_url">
       <DasType>varchar(255)|0s</DasType>
-      <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="311" parent="299" name="password">
-      <DasType>varchar(255)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-    </column>
-    <index id="312" parent="299" name="PRIMARY">
+    <index id="318" parent="299" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="313" parent="299" name="PRIMARY">
+    <key id="319" parent="299" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="320" parent="300" name="UUID">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="321" parent="300" name="fileName">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <index id="322" parent="300" name="PRIMARY">
+      <ColNames>UUID</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="323" parent="300" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="324" parent="301" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="325" parent="301" name="hotel_id">
+      <DasType>int|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="326" parent="301" name="room_name">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="327" parent="301" name="bed_type">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="328" parent="301" name="bed_count">
+      <DasType>int|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="329" parent="301" name="facilities">
+      <DasType>json|0s</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="330" parent="301" name="price">
+      <DasType>decimal(10,2 digit)|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <index id="331" parent="301" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="332" parent="301" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="333" parent="302" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="334" parent="302" name="hotel_id">
+      <DasType>int|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="335" parent="302" name="room_id">
+      <DasType>int|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="336" parent="302" name="picture_url">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <index id="337" parent="302" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="338" parent="302" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="339" parent="303" name="id">
+      <AutoIncrement>3</AutoIncrement>
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="340" parent="303" name="userName">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="341" parent="303" name="email">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="342" parent="303" name="password">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <index id="343" parent="303" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="344" parent="303" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

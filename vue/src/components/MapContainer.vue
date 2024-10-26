@@ -1,10 +1,11 @@
 <script setup>
-import {onMounted, onUnmounted, ref} from "vue";
+import {onMounted, onUnmounted, ref,} from "vue";
 import AMapLoader from "@amap/amap-jsapi-loader";
-import locationData from "../assets/locationData.json";
 const geocoder = ref(null);
 const marker =ref(null);
 let map = null;
+let locations=ref([]);
+const emit = defineEmits();
 onMounted(() => {
   window._AMapSecurityConfig = {
     securityJsCode: '29c04f7c3a37e8f1e6539352e52c9d96',
@@ -21,7 +22,6 @@ onMounted(() => {
           zoom: 11,
           center: [116.397428, 39.90923],
         });
-
         geocoder.value = new AMap.Geocoder({
           city: '全国', // 设置搜索范围
         });
@@ -34,7 +34,6 @@ onMounted(() => {
       .catch((e) => {
         console.log(e);
       });
-  provinces.value = locationData.map(province=>province.province);
 });
 
 onUnmounted(() => {
@@ -45,18 +44,21 @@ const handleInput = (location) => {
   if (geocoder.value) {
     geocoder.value.getLocation(location, (status, result) => {
       if (status === 'complete' && result.geocodes.length) {
-        const location = result.geocodes[0].location;
-        console.log('Coordinates:', location);
-        map.setCenter(location);
-        marker.value.setPosition(location)
-        // 将坐标存入数据库
+        const loc = result.geocodes[0].location;
+        locations.value = loc;
+        map.setCenter(loc);
+        marker.value.setPosition(loc);
+        emit('update:locations', loc); // Emit to parent
       } else {
         console.log('Failed to get location');
       }
     });
   }
 };
-
+defineExpose({
+  handleInput,
+  locations
+});
 
 onUnmounted(() => {
   map?.destroy();
@@ -71,5 +73,9 @@ onUnmounted(() => {
 #container {
   width: 100%;
   height: 800px;
+}
+#container {
+  width: 100%;
+  height: 300px;
 }
 </style>

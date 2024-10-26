@@ -6,8 +6,6 @@
     <div class="card">
 
       <div>
-        <img src="../assets/酒店/18690165.jpg" alt="图片加载失败">
-        <p>M’s Plus 四条大宫酒店</p>
         <p>东京,日本</p>
         <p><span>8.8</span>好评如潮</p>
         <p><span>123￥</span> <span>88￥</span></p>
@@ -39,8 +37,17 @@
 </template>
 
 <script setup>
-import {ref} from "vue";
+import {ref, onMounted ,reactive} from "vue";
 import heard from "../components/heard.vue";
+import hotel from "../api/hotel.js";
+let hotelList = reactive([]);
+onMounted(async () => {
+  hotel.selectHotel()
+      .then(response => {
+        hotelList = response.data;
+        console.log(hotelList)
+      })
+})
 </script>
 
 <style scoped>

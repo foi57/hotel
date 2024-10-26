@@ -12,4 +12,6 @@ public interface UserMapper {
     void insert(User user);
     @Select("SELECT * FROM user where email=#{userName} and password=#{password}")
     User login(String userName, String password);
+    @Insert("INSERT INTO picture(UUID, fileName) VALUES (#{uuid}, #{fileName})")
+    void addPicture(String uuid, String fileName);
 }
