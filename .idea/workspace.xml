@@ -5,50 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36e48345-8858-47b1-810f-9b1995180da5" name="更改" comment="addhotel1">
-      <change afterPath="$PROJECT_DIR$/files/431c4d33-4576-4c71-a702-63943b6a51ad.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/81460905-534c-4140-9400-c1bb744da69c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/83b7f85e-c531-4562-a509-e4f406a5eb6c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/97489a1e-5fe4-4089-9a9b-44a012a1cca3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/a875b6f3-d288-4a91-9dcd-8b1dfe8445f6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/c741f22c-e440-4af8-894b-9566163a1f43.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/d8187c08-2a11-4c7a-ad9f-669501c7e3c5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/dc647c22-b8e4-4aa4-8076-f926bfe35758.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/f662c199-fd2b-4aeb-b962-7d6595155ab3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/f8efee49-972b-4e78-8b4a-01168d868c15.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Config/StringListTypeHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Controller/HotelController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Service/HotelService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/entity/HotelForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/entity/Room.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/mapper/HotelMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue/src/api/hotel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a1032884-ec18-4364-8498-4543b28aeda7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a1032884-ec18-4364-8498-4543b28aeda7.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/23b22c5c-a54f-4bf6-be1c-3e0530adb356.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/static/files/23b22c5c-a54f-4bf6-be1c-3e0530adb356.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/431c4d33-4576-4c71-a702-63943b6a51ad.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/static/files/431c4d33-4576-4c71-a702-63943b6a51ad.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/81460905-534c-4140-9400-c1bb744da69c.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/static/files/81460905-534c-4140-9400-c1bb744da69c.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/83b7f85e-c531-4562-a509-e4f406a5eb6c.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/static/files/83b7f85e-c531-4562-a509-e4f406a5eb6c.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/91cdd50b-b0d2-442f-86b8-dcae9f07070a.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/static/files/91cdd50b-b0d2-442f-86b8-dcae9f07070a.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/97489a1e-5fe4-4089-9a9b-44a012a1cca3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/static/files/97489a1e-5fe4-4089-9a9b-44a012a1cca3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/a875b6f3-d288-4a91-9dcd-8b1dfe8445f6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/static/files/a875b6f3-d288-4a91-9dcd-8b1dfe8445f6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/c741f22c-e440-4af8-894b-9566163a1f43.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/static/files/c741f22c-e440-4af8-894b-9566163a1f43.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/d8187c08-2a11-4c7a-ad9f-669501c7e3c5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/static/files/d8187c08-2a11-4c7a-ad9f-669501c7e3c5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/dc647c22-b8e4-4aa4-8076-f926bfe35758.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/static/files/dc647c22-b8e4-4aa4-8076-f926bfe35758.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/e4ad8f77-e6f6-40d7-bb12-d7245592cb3b.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/static/files/e4ad8f77-e6f6-40d7-bb12-d7245592cb3b.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/f662c199-fd2b-4aeb-b962-7d6595155ab3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/static/files/f662c199-fd2b-4aeb-b962-7d6595155ab3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/f8efee49-972b-4e78-8b4a-01168d868c15.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/static/files/f8efee49-972b-4e78-8b4a-01168d868c15.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#ib_16384_0.dblwr" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/#ib_16384_0.dblwr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_redo/#ib_redo10_tmp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_1.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_1.ibt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_2.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_2.ibt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_3.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_3.ibt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_6.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_6.ibt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_7.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_7.ibt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_8.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_8.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/binlog.000008" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/binlog.000008" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/hotel/hotel.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/hotel/hotel.ibd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/hotel/user.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/hotel/user.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/ibdata1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/ibtmp1" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/ibtmp1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/mysql.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/mysql.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/undo_001" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/undo_001" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/undo_002" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/undo_002" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/MyBatisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Config/MyBatisConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/SpringbootApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/SpringbootApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/components/MapContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/MapContainer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/addHotel.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/addHotel.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Controller/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Controller/HotelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/entity/HotelForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/entity/HotelForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/views/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,6 +82,7 @@
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;Docker.docker/Dockerfile.executor&quot;: &quot;Run&quot;,
     &quot;Docker.docker: Compose 部署.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.springboot.mysql: Compose 部署.executor&quot;: &quot;Run&quot;,
     &quot;Docker.springboot/Dockerfile.executor&quot;: &quot;Run&quot;,
     &quot;Docker.springboot: Compose 部署.executor&quot;: &quot;Run&quot;,
     &quot;HTTP 请求.generated-requests中的所有.executor&quot;: &quot;Run&quot;,
@@ -143,20 +128,17 @@
       <recent name="E:\code\vue\hotel\vue\src\assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\code\vue\hotel\springboot\src\main\resources\static" />
       <recent name="E:\code\vue\hotel\vue\src\assets" />
       <recent name="E:\code\vue\hotel\vue\src\components" />
       <recent name="E:\code\vue\hotel\springboot\src\main\resources" />
       <recent name="E:\code\vue\hotel\springboot\docker" />
-      <recent name="E:\code\vue\hotel\vue\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.SpringbootApplication">
+  <component name="RunManager" selected="复合.hotel">
     <configuration name="hotel" type="CompoundRunConfigurationType">
       <toRun name="npm dev" type="js.build_tools.npm" />
       <toRun name="SpringbootApplication" type="SpringBootApplicationConfigurationType" />
-      <method v="2" />
-    </configuration>
-    <configuration name="generated-requests中的所有" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http">
       <method v="2" />
     </configuration>
     <configuration name="SpringbootApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
@@ -211,6 +193,19 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="springboot.mysql: Compose 部署" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="mysql" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="springboot/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration name="npm dev" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/vue/package.json" />
       <command value="run" />
@@ -222,22 +217,22 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Docker.springboot.mysql: Compose 部署" />
       <item itemvalue="Docker.docker: Compose 部署" />
       <item itemvalue="Docker.springboot: Compose 部署" />
       <item itemvalue="Docker.docker/Dockerfile" />
       <item itemvalue="Docker.springboot/Dockerfile" />
-      <item itemvalue="HTTP 请求.generated-requests中的所有" />
       <item itemvalue="npm.npm dev" />
       <item itemvalue="Spring Boot.SpringbootApplication" />
       <item itemvalue="复合.hotel" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.springboot.mysql: Compose 部署" />
         <item itemvalue="Docker.springboot: Compose 部署" />
         <item itemvalue="Docker.docker: Compose 部署" />
         <item itemvalue="Docker.docker/Dockerfile" />
         <item itemvalue="Docker.springboot/Dockerfile" />
-        <item itemvalue="HTTP 请求.generated-requests中的所有" />
       </list>
     </recent_temporary>
   </component>
@@ -281,7 +276,9 @@
       <workItem from="1729909483606" duration="6621000" />
       <workItem from="1729916179318" duration="154000" />
       <workItem from="1729927861094" duration="5591000" />
-      <workItem from="1729933860439" duration="5221000" />
+      <workItem from="1729933860439" duration="7871000" />
+      <workItem from="1729941951526" duration="39000" />
+      <workItem from="1730013114492" duration="7517000" />
     </task>
     <task id="LOCAL-00001" summary="addhotel1">
       <option name="closed" value="true" />
@@ -307,7 +304,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729761790357</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="addhotel1">
+      <option name="closed" value="true" />
+      <created>1729939588399</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1729939588399</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

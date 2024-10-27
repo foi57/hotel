@@ -1,5 +1,6 @@
 package org.example.springboot.entity;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class HotelForm {
@@ -14,6 +15,7 @@ public class HotelForm {
     private List<String> locations; // 存储位置
     private List<Room> rooms; // 房间信息的列表
     private String picture_urls;
+    private BigDecimal price;
     public Integer getId() {
         return id;
     }

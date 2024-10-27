@@ -45,7 +45,7 @@ public class HotelController {
             Path path = Paths.get("files", uniqueFileName);
             Files.write(path, file.getBytes());
             hotelService.addPicture(uniqueFileName,fileName);
-            String fileUrl = serverUrl + "/files/" + uniqueFileName;
+            String fileUrl = serverUrl + "springboot/src/main/resources/static/files" + uniqueFileName;
             return ResponseEntity.ok(fileUrl);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
@@ -89,7 +89,7 @@ public class HotelController {
         if (uniqueFileName == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("File not found");
         }
-        Path path = Paths.get("files", uniqueFileName);
+        Path path = Paths.get("springboot/src/main/resources/static/files", uniqueFileName);
         try {
             Files.deleteIfExists(path);
             return ResponseEntity.ok("File deleted successfully");
