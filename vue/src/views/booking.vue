@@ -46,7 +46,7 @@ const onSubmit = () => {
     <p>{{hotel.name}}</p>
     <img :src="hotel.picture_url[0]" alt="图片加载失败">
     <p>{{hotel.city}},{{hotel.district}},{{hotel.address}}</p>
-    <p>{{bookInfo.info.roomName}}</p>
+    <p>{{bookInfo.info.room_name}}</p>
     <p>入住时间:{{bookInfo.TimeStartFormatted}} 离店时间:{{bookInfo.TimeEndFormatted}}</p>
     <p>数量:{{bookInfo.info.bookCount}}</p>
     <p>总价:{{bookInfo.info.price}}元</p>

@@ -22,6 +22,7 @@ onMounted(() => {
 const book = (room) => {
   const bookInfo = {
     roomId: room.id,
+    room_name: room.room_name,
     bookCount: bookCount.value,
     CountDay: CountDay.value,
     TimeStart: TimeStart.value,
