@@ -4,7 +4,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import io.jsonwebtoken.*;
 import org.apache.ibatis.type.MappedTypes;
 import org.example.springboot.Service.HotelService;
+import org.example.springboot.entity.BookInfo;
 import org.example.springboot.entity.HotelForm;
+import org.example.springboot.entity.HotelSearchRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -99,6 +101,41 @@ public class HotelController {
     }
     @GetMapping("/selectSpecialsHotels")
     public ResponseEntity<List<HotelForm>> selectSpecialsHotels() {
-        return ResponseEntity.ok(hotelService.selectSpecialsHotels());
+        List<HotelForm> hotelForm = null;
+        try {
+            hotelForm = hotelService.selectSpecialsHotels();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return ResponseEntity.ok(hotelForm);
+    }
+    @PostMapping("/selectHotelBySearchBox")
+    public ResponseEntity<List<HotelForm>> selectHotelBySearchBox(@RequestBody HotelSearchRequest hotelSearchRequest) {
+        logger.info("hotelSearchRequest{}",hotelSearchRequest);
+        return null;
+    }
+    @PostMapping("/booking")
+    public ResponseEntity<String> booking(@RequestBody BookInfo bookInfo) {
+        return null;
+    }
+    public int getUserId(@RequestHeader("Authorization") String authorizationHeader) {
+          int id = -1;
+        try {
+            if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
+                String token = authorizationHeader.substring(7);
+                String key = "your-256-bit-secret-long-string-here";
+                Claims claims=Jwts.parser()
+                        .setSigningKey(key.getBytes())
+                        .parseClaimsJws(token)
+                        .getBody();
+                id = claims.get("id", Integer.class);
+            }
+            else {
+                logger.info("No token provided");
+            }
+        } catch (ExpiredJwtException e) {
+            logger.info("Token expired：{}",e.getMessage());
+        }
+        return id;
     }
 }

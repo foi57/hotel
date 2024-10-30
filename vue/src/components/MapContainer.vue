@@ -5,7 +5,9 @@ const geocoder = ref(null);
 const marker =ref(null);
 let map = null;
 let locations=ref([]);
+let Center=ref([]);
 const emit = defineEmits();
+let AMap = null;
 onMounted(() => {
   window._AMapSecurityConfig = {
     securityJsCode: '29c04f7c3a37e8f1e6539352e52c9d96',
@@ -16,7 +18,8 @@ onMounted(() => {
     version: '2.0',
     plugins: ['AMap.Geocoder'],
   })
-      .then((AMap) => {
+      .then((loadedAMap) => {
+        AMap=loadedAMap
         map = new AMap.Map('container', {
           viewMode: '3D',
           zoom: 11,
@@ -29,11 +32,16 @@ onMounted(() => {
           map:map,
           position:[116.397428,39.90923]
         });
-
+        if (Center.value.length > 0) {
+          console.log('load set location:'+Center.value);
+          map.setCenter(Center.value);
+          marker.value.setPosition(Center.value);
+        }
       })
       .catch((e) => {
         console.log(e);
       });
+
 });
 
 onUnmounted(() => {
@@ -41,7 +49,12 @@ onUnmounted(() => {
 });
 
 const handleInput = (location) => {
-  if (geocoder.value) {
+  if (!geocoder.value) {
+    console.error('Geocoder is not initialized, cannot handle input');
+    return; // 直接返回，避免后续调用
+  }
+
+    console.log('text12313')
     geocoder.value.getLocation(location, (status, result) => {
       if (status === 'complete' && result.geocodes.length) {
         const loc = result.geocodes[0].location;
@@ -53,11 +66,14 @@ const handleInput = (location) => {
         console.log('Failed to get location');
       }
     });
-  }
+};
+const updateCenter = (center) => {
+  Center.value = center
 };
 defineExpose({
   handleInput,
-  locations
+  locations,
+  updateCenter
 });
 
 onUnmounted(() => {
@@ -72,10 +88,6 @@ onUnmounted(() => {
 <style scoped>
 #container {
   width: 100%;
-  height: 800px;
-}
-#container {
-  width: 100%;
-  height: 300px;
+  height:100%;
 }
 </style>

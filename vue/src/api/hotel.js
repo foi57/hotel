@@ -22,5 +22,19 @@ export default {
             url: '/selectSpecialsHotels',
             method: 'get'
         })
+    },
+    selectHotelBySearchBox: (form) => {
+        return request({
+            url: '/selectHotelBySearchBox',
+            method: 'post',
+            data: form
+        })
+    },
+    booking: (form) => {
+        return request({
+            url: '/booking',
+            method: 'post',
+            data: form
+        })
     }
 }

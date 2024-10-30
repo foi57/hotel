@@ -4,23 +4,22 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class Room {
-    private int roomId;
-       private String roomName;
-       private List<String> roomPictures; // 使用 List<String> 存储图片
-       private int roomCount;
-       private String bedType;
-       private int bedCount;
+    private int id;
+       private String room_name;
+       private String room_picture_url; // 使用 List<String> 存储图片
+       private int bed_count;
+       private String bed_type;
        private List<Boolean> facilities; // 使用 List<Boolean> 存储设施的选中状态
        private BigDecimal price;
        // Constructors
        // Getters and Setters
 
-    public int getRoomId() {
-        return roomId;
+    public int getId() {
+        return id;
     }
 
-    public void setRoomId(int roomId) {
-        this.roomId = roomId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public List<Boolean> getFacilities() {
@@ -31,45 +30,38 @@ public class Room {
            this.facilities = facilities;
        }
 
-       public String getRoomName() {
-           return roomName;
+       public String getRoom_name() {
+           return room_name;
        }
 
-       public void setRoomName(String roomName) {
-           this.roomName = roomName;
+       public void setRoom_name(String room_name) {
+           this.room_name = room_name;
        }
 
-       public List<String> getRoomPictures() {
-           return roomPictures;
+    public String getRoom_picture_url() {
+        return room_picture_url;
+    }
+
+    public void setRoom_picture_url(String room_picture_url) {
+        this.room_picture_url = room_picture_url;
+    }
+
+    public int getBed_count() {
+           return bed_count;
        }
 
-       public void setRoomPictures(List<String> roomPictures) {
-           this.roomPictures = roomPictures;
+       public void setBed_count(int bed_count) {
+           this.bed_count = bed_count;
        }
 
-       public int getRoomCount() {
-           return roomCount;
+       public String getBed_type() {
+           return bed_type;
        }
 
-       public void setRoomCount(int roomCount) {
-           this.roomCount = roomCount;
+       public void setBed_type(String bed_type) {
+           this.bed_type = bed_type;
        }
 
-       public String getBedType() {
-           return bedType;
-       }
-
-       public void setBedType(String bedType) {
-           this.bedType = bedType;
-       }
-
-       public int getBedCount() {
-           return bedCount;
-       }
-
-       public void setBedCount(int bedCount) {
-           this.bedCount = bedCount;
-       }
 
        public BigDecimal getPrice() {
            return price;
@@ -82,12 +74,11 @@ public class Room {
     @Override
     public String toString() {
         return "Room{" +
-                "roomId=" + roomId +
-                ", roomName='" + roomName + '\'' +
-                ", roomPictures=" + roomPictures +
-                ", roomCount=" + roomCount +
-                ", bedType='" + bedType + '\'' +
-                ", bedCount=" + bedCount +
+                "id=" + id +
+                ", room_name='" + room_name + '\'' +
+                ", room_picture_url='" + room_picture_url + '\'' +
+                ", bed_count=" + bed_count +
+                ", bed_type='" + bed_type + '\'' +
                 ", facilities=" + facilities +
                 ", price=" + price +
                 '}';

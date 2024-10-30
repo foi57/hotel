@@ -25,6 +25,16 @@ const routes = [
         path: "/addHotel",
         name: "AddHotel",
         component: () => import("../views/AddHotel.vue")
+    },
+    {
+        path: "/hotelInnerPages",
+        name: "hotelInnerPages",
+        component: () => import("../views/hotelInnerPages.vue")
+    },
+    {
+        path: "/booking",
+        name: "booking",
+        component: () => import("../views/booking.vue")
     }
 ];
 

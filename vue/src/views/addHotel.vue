@@ -20,8 +20,8 @@ const form = ref({
   address: '',
   locations: [],
   rooms: [{
-    roomName: '',
-    roomPictures: [],
+    room_name: '',
+    roomPictures: '',
     roomCount: 1,
     bedType: '',
     bedCount: 1,
@@ -36,7 +36,7 @@ const beds =['单人床','双人床'];
 const addRoom = () => {
   form.value.rooms.push({
     roomName: '',
-    roomPictures: [],
+    roomPictures: '',
     roomCount: 1,
     bedType: '',
     bedCount: 1,
@@ -96,7 +96,7 @@ const HotelHandlePictureUploadSuccess = (response) => {
   form.value.picture_url.push(response);
 }
 const RoomHandlePictureUploadSuccess = (response,index) => {
-  form.value.rooms[index].roomPictures.push(response);
+  form.value.rooms[index].roomPictures =response;
 }
 const handleHotelPictureRemove = (fileName,index) => {
   console.log(fileName);
@@ -151,12 +151,15 @@ const updateLocations = (locations) => {
     <el-form-item label="具体地址">
       <el-input v-model="form.address" type="textarea" @input="mapLocation(form.province+form.city+form.district+form.address)"></el-input>
     </el-form-item>
-    <MapContainer ref="MapContainerRef" @update:locations="updateLocations"></MapContainer>
+    <div class="map">
+      <MapContainer ref="MapContainerRef" @update:locations="updateLocations"></MapContainer>
+    </div>
+
     <h4>住房信息</h4>
     <div class="root" v-for="(room,index) in form.rooms" :key="index">
       <h5>房间 {{ index + 1 }}</h5>
     <el-form-item label="房间名称">
-      <el-input v-model="room.roomName"></el-input>
+      <el-input v-model="room.room_name"></el-input>
     </el-form-item>
     <el-form-item label="房间数量">
       <el-input-number v-model="room.roomCount"></el-input-number>
@@ -243,5 +246,9 @@ const updateLocations = (locations) => {
 }
 .Context{
   margin-top: 20px;
+}
+.map{
+  width: 100%;
+  height: 300px;
 }
 </style>
