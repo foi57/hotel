@@ -21,10 +21,10 @@ const form = ref({
   locations: [],
   rooms: [{
     room_name: '',
-    roomPictures: '',
-    roomCount: 1,
-    bedType: '',
-    bedCount: 1,
+    room_picture_url: '',
+    room_count: 1,
+    bed_type: '',
+    bed_count: 1,
     facilities: [false, false, false, false, false, false, false, false],
     price: 0
   }]
@@ -35,11 +35,11 @@ const beds =['单人床','双人床'];
 // 增加房间
 const addRoom = () => {
   form.value.rooms.push({
-    roomName: '',
-    roomPictures: '',
-    roomCount: 1,
-    bedType: '',
-    bedCount: 1,
+    room_name: '',
+    room_picture_url: '',
+    room_count: 1,
+    bed_type: '',
+    bed_count: 1,
     facilities: [false, false, false, false, false, false, false, false]
     ,price: 0
   });
@@ -96,7 +96,7 @@ const HotelHandlePictureUploadSuccess = (response) => {
   form.value.picture_url.push(response);
 }
 const RoomHandlePictureUploadSuccess = (response,index) => {
-  form.value.rooms[index].roomPictures =response;
+  form.value.rooms[index].room_picture_url =response;
 }
 const handleHotelPictureRemove = (fileName,index) => {
   console.log(fileName);
@@ -105,7 +105,7 @@ const handleHotelPictureRemove = (fileName,index) => {
 }
 const handleRoomPictureRemove = (fileName,index,roomIndex) => {
   hotel.deletePicture(fileName);
-  form.value.rooms[roomIndex].roomPictures.splice(index,1);
+  form.value.rooms[roomIndex].room_picture_url.splice(index,1);
 }
 const mapLocation = (location) => {
   MapContainerRef.value.handleInput(location);
@@ -162,7 +162,7 @@ const updateLocations = (locations) => {
       <el-input v-model="room.room_name"></el-input>
     </el-form-item>
     <el-form-item label="房间数量">
-      <el-input-number v-model="room.roomCount"></el-input-number>
+      <el-input-number v-model="room.room_count"></el-input-number>
     </el-form-item>
     <el-form-item label="房间图图片">
       <el-upload list-type="picture-card" multiple accept="image/*" :before-upload="handlePictureUpdate" :limit="1" :on-exceed="handleExceed"
@@ -172,12 +172,12 @@ const updateLocations = (locations) => {
     </el-form-item>
       <div class="bed">
      <el-form-item label="床类型">
-       <el-select v-model="room.bedType">
+       <el-select v-model="room.bed_type">
          <el-option v-for="bed in beds" :key="bed" :label="bed" :value="bed"></el-option>
        </el-select>
      </el-form-item>
      <el-form-item label="床数量" >
-       <el-input-number v-model="room.bedCount"></el-input-number>
+       <el-input-number v-model="room.bed_count"></el-input-number>
      </el-form-item>
         </div>
       <h4>设施</h4>
