@@ -6,6 +6,7 @@ import java.util.List;
 public class Room {
     private int id;
        private String room_name;
+       private int room_count;
        private String room_picture_url; // 使用 List<String> 存储图片
        private int bed_count;
        private String bed_type;
@@ -13,6 +14,14 @@ public class Room {
        private BigDecimal price;
        // Constructors
        // Getters and Setters
+
+    public int getRoom_count() {
+        return room_count;
+    }
+
+    public void setRoom_count(int room_count) {
+        this.room_count = room_count;
+    }
 
     public int getId() {
         return id;
@@ -76,6 +85,7 @@ public class Room {
         return "Room{" +
                 "id=" + id +
                 ", room_name='" + room_name + '\'' +
+                ", room_count=" + room_count +
                 ", room_picture_url='" + room_picture_url + '\'' +
                 ", bed_count=" + bed_count +
                 ", bed_type='" + bed_type + '\'' +

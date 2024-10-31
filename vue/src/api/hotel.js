@@ -23,18 +23,16 @@ export default {
             method: 'get'
         })
     },
-    selectHotelBySearchBox: (form) => {
+    selectHotelByCityTime: (city,timeStart,timeEnd) => {
         return request({
-            url: '/selectHotelBySearchBox',
+            url: '/selectHotelByCityTime',
             method: 'post',
-            data: form
-        })
-    },
-    booking: (form) => {
-        return request({
-            url: '/booking',
-            method: 'post',
-            data: form
+            params: {
+                city,
+                timeStart,
+                timeEnd
+            }
         })
     }
+
 }

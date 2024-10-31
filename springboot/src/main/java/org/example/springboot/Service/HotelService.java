@@ -2,6 +2,7 @@ package org.example.springboot.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.example.springboot.entity.BookInfo;
 import org.example.springboot.entity.HotelForm;
 import org.example.springboot.entity.Room;
 import org.example.springboot.mapper.HotelMapper;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -120,4 +122,8 @@ public class HotelService {
        }
        return hotelForms;
     }
+
+   public int SelectHotelCountByCityTime(String city, Timestamp timeStart, Timestamp timeEnd) {
+       return hotelMapper.selectHotelCountByCityTime(city,timeStart,timeEnd);
+   }
 }

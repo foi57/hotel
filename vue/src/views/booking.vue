@@ -2,7 +2,7 @@
 import Heard from "../components/heard.vue";
 import {useStore} from "vuex";
 import {computed,ref} from "vue";
-import hotelApi from "../api/hotel.js";
+import book from "../api/book.js";
 const store = useStore();
 const hotel = computed(() => {
   const hotel=store.getters.getHotel
@@ -11,7 +11,7 @@ const hotel = computed(() => {
 })
 const bookInfo = computed(() => {
   const bookInfo = store.getters.getBook
-  console.log(bookInfo)
+  console.log("bookInfo",bookInfo)
   return {info:bookInfo,
     TimeStartFormatted: formatDate(bookInfo.TimeStart),
     TimeEndFormatted: formatDate(bookInfo.TimeEnd),
@@ -22,17 +22,19 @@ const formatDate = (dateString) => {
   return new Intl.DateTimeFormat('zh-CN',{year: 'numeric', month:'numeric', day:'numeric'}).format(date);
 }
 const form = ref({
-  roomId: bookInfo.value.info.roomId,
-  roomCount: bookInfo.value.info.bookCount,
-  TimeStart: bookInfo.value.TimeStartFormatted,
-  TimeEnd: bookInfo.value.TimeEndFormatted,
+  room_id: bookInfo.value.info.room_id,
+  room_count: bookInfo.value.info.room_count,
+  timeStart: bookInfo.value.info.TimeStart,
+  timeEnd: bookInfo.value.info.TimeEnd,
   name: '',
   phone: '',
   email: '',
-  arrivalTime: ''
+  arrivalTime: '',
+  price: bookInfo.value.info.price
 })
 const onSubmit = () => {
-  hotelApi.booking(form.value)
+  console.log(form.value)
+  book.booking(form.value,bookInfo.value.TimeStartFormatted,bookInfo.value.TimeEndFormatted)
     .catch((error) => {
       console.log(error)
     })
@@ -53,7 +55,7 @@ const onSubmit = () => {
   </div>
   <div class="GuestInfo">
   <H2>住客信息</H2>
-  <el-form>
+  <el-form :model="form">
     <el-form-item label="姓名">
       <el-input v-model="form.name"></el-input>
     </el-form-item>
@@ -90,7 +92,5 @@ const onSubmit = () => {
   height: 200px;
 
 }
-.hotelInfo{
 
-}
 </style>

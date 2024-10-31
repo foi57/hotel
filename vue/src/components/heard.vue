@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import {jwtDecode} from "jwt-decode";
+import router from "../router/index.js";
 
 const userName = ref('');
 
@@ -26,6 +27,9 @@ const handleLogin = () => {
     window.location.href = '/login'
   }
 }
+const showBook = () => {
+  router.push('/bookInfo')
+}
 </script>
 
 <template>
@@ -34,6 +38,7 @@ const handleLogin = () => {
     <div class="dropdown" v-if="showDropdown&&userName!=='登录'" >
       <ul>
         <li>个人信息</li>
+        <li @click="showBook">我的订单</li>
         <li @click="handleLogout">退出</li>
       </ul>
     </div>
