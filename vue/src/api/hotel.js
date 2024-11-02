@@ -2,6 +2,7 @@ import request from '../request.js'
 
 export default {
     addHotel: (form) => {
+        console.log('addH',form)
         return request({
             url: '/addHotel',
             method: 'post',
