@@ -4,49 +4,29 @@
   <div class="Context">
     <SearchBox></SearchBox>
     <h1>特惠酒店</h1>
-    <div class="card" v-if="hotelList.length>0">
-      <div v-for="hotel in hotelList" :key="hotel.id" @click="InnerPager(hotel)">
-        <img :src="hotel.picture_url[0]" alt="图片加载失败">
-        <p>{{hotel.name}}</p>
-        <p>{{hotel.city}},{{hotel.district}}</p>
-        <p><span>{{lowestPrice(hotel)}}</span>￥起</p>
-        </div>
-    </div>
-    <div v-else>
-      <p>暂无数据</p>
-    </div>
+   <view-hotel></view-hotel>
   </div>
 </template>
 
 <script setup>
-import {ref, onMounted, computed} from "vue";
+import {ref, onMounted} from "vue";
 import heard from "../components/heard.vue";
 import hotel from "../api/hotel.js";
 import SearchBox from "../components/SearchBox.vue";
-import router from "../router/index.js";
 import {useStore} from "vuex";
+import ViewHotel from "../components/viewHotel.vue";
 const store = useStore()
 let hotelList = ref([]);
 onMounted(async () => {
+  console.log(1)
   hotel.selectHotel()
       .then(response => {
         hotelList.value = response.data;
+        store.dispatch("updateHotel",hotelList.value);
         console.log(hotelList.value)
       })
 })
-const InnerPager = (hotel) => {
-  store.dispatch("updateHotel",hotel);
-  router.push("/hotelInnerPages");
-}
-const lowestPrice = (hotel) => {
-  let min = hotel.rooms[0].price
-  for (let i = 0; i < hotel.rooms.length; i++) {
-    if (hotel.rooms[i].price < min) {
-      min = hotel.rooms[i].price
-    }
-  }
-  return min
-}
+
 </script>
 
 <style scoped>

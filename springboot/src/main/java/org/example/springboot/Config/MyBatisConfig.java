@@ -18,8 +18,6 @@ public class MyBatisConfig {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
         sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/*.xml"));
-//        sqlSessionFactoryBean.setTypeHandlers(new TypeHandler[]{
-//                new StringListTypeHandler() });
         return sqlSessionFactoryBean.getObject();
     }
     @Bean

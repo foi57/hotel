@@ -44,6 +44,7 @@ const addRoom = () => {
     ,price: 0
   });
 };
+const deleteHotelPictureIds = ref([]);
 const removeRoom = () => {
   form.value.rooms.pop();
 }
@@ -93,13 +94,15 @@ const onSubmit = () => {
      // router.push('/');
     }
 const HotelHandlePictureUploadSuccess = (response) => {
-  form.value.picture_url.push(response);
+    form.value.picture_url.push(response.fileUrl);
+    console.log('PictureUrl',form.value.picture_url)
+    deleteHotelPictureIds.value.push(response.id);
+    console.log('PictureId',deleteHotelPictureIds.value)
 }
 const RoomHandlePictureUploadSuccess = (response,index) => {
   form.value.rooms[index].room_picture_url =response;
 }
 const handleHotelPictureRemove = (fileName,index) => {
-  console.log(fileName);
   hotel.deletePicture(fileName);
   form.value.picture_url.splice(index,1);
 }
@@ -129,7 +132,8 @@ const updateLocations = (locations) => {
       <el-upload list-type="picture-card" accept="image/*" :before-upload="handlePictureUpdate" :limit="5" :on-exceed="handleExceed"
       :action="'http://localhost:8080/api/PictureUpload'"
       :on-success="HotelHandlePictureUploadSuccess"
-      :on-remove="(file)=>handleHotelPictureRemove(file.name,file.index)"></el-upload>
+      :on-remove="(file)=>handleHotelPictureRemove(file.name,file.index)"
+      :file-list="form.picture_url"></el-upload>
     </el-form-item>
     <div class="address-row">
     <el-form-item label="省份">

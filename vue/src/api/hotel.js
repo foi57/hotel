@@ -9,6 +9,7 @@ export default {
         })
     },
     deletePicture: (fileName) => {
+        console.log('fileId',fileName)
         return request({
             url: '/deletePicture',
             method: 'post',
@@ -23,16 +24,28 @@ export default {
             method: 'get'
         })
     },
-    selectHotelByCityTime: (city,timeStart,timeEnd) => {
+    selectHotelByCityTime: (city,timeStart,timeEnd,page,pageSize) => {
         return request({
             url: '/selectHotelByCityTime',
             method: 'post',
             params: {
                 city,
                 timeStart,
+                timeEnd,
+                page,
+                pageSize
+            }
+        })
+    },
+    selectRoomByHotelIdTime: (hotelId,timeStart,timeEnd) => {
+        return request({
+            url: '/selectRoomByHotelIdTime',
+            method: 'post',
+            params: {
+                hotelId,
+                timeStart,
                 timeEnd
             }
         })
     }
-
 }

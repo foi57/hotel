@@ -1,13 +1,16 @@
 <script setup>
-import {ref} from "vue";
+import {ref,computed} from "vue";
 import locationData from "../assets/locationData.json";
 import hotel from "../api/hotel.js";
-const form = ref({
+import {useStore} from "vuex";
+import router from "../router/index.js";
+let form = ref({
   destination: '',
   checkInDate: '',
   checkOutDate: '',
 });
-
+const hotels = ref([]);
+const store = useStore()
 const querySearch = (queryString, cb) => {
   const results= [];
   const query = queryString.toLowerCase();
@@ -20,13 +23,23 @@ const querySearch = (queryString, cb) => {
   })
   cb(results);
 }
-
-const handleSearch = () => {
-  hotel.selectHotelByCityTime(form.value.destination,form.value.checkInDate,form.value.checkOutDate)
+computed(form.value= store.getters.getSearchBox)
+const handleSearch = (page) => {
+  console.log(form.value)
+  hotel.selectHotelByCityTime(form.value.destination,form.value.checkInDate,form.value.checkOutDate,1,10)
       .then(response => {
-        console.log(response.data)
+        hotels.value = response.data.hotelFormList
+        const page =ref({
+          currentPage: response.data.currentPage,
+          totalPage: response.data.totalPage,
+        })
+        store.dispatch("updateHotel",hotels.value)
+        store.dispatch("updatePages",page.value)
       })
+  store.dispatch("updateSearchBox",form.value)
+  router.push("/selectHotel")
 }
+defineExpose({handleSearch});
 </script>
 
 <template>

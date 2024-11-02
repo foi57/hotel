@@ -2,8 +2,8 @@ package org.example.springboot.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.example.springboot.entity.BookInfo;
 import org.example.springboot.entity.HotelForm;
+import org.example.springboot.entity.Picture;
 import org.example.springboot.entity.Room;
 import org.example.springboot.mapper.HotelMapper;
 import org.example.springboot.mapper.UserMapper;
@@ -14,9 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @Service
 @Transactional
@@ -31,13 +29,18 @@ public class HotelService {
     }
     @Autowired
     UserMapper userMapper;
-    public void addPicture(String UUID,String fileName) {
-        logger.info("addPictureFileName{}",fileName);
-        userMapper.addPicture(UUID,fileName);
+    public Long addPicture(String uuid, String fileName) {
+        Picture picture = new Picture();
+        picture.setUuid(uuid);
+        picture.setFileName(fileName);
+        logger.info("AddPicture{}", picture);
+        userMapper.addPicture(picture); // 直接传递 Picture 对象
+        return picture.getId(); // 此时应该能正确获取生成的 ID
     }
+
     public String SelectPicture(String fileName) {
         logger.info("DeleteFileName{}",fileName);
-        return hotelMapper.selectPicture(fileName);
+        return userMapper.selectPicture(fileName);
     }
     public void insertHotelPicture(int hotelId,HotelForm hotelForm) {
         for (int i = 0; i < hotelForm.getPicture_url().size(); i++) {
@@ -75,15 +78,10 @@ public class HotelService {
     }
     public void insertRoomPicture(int hotelId,List<Integer> roomIds,HotelForm hotelForm) {
        for (int i = 0; i< hotelForm.getRooms().size(); i++) {
-//           for (int j = 0; j < hotelForm.getRooms().get(i).getRoomPictures().size(); j++) {
-//               hotelMapper.insertRoomPicture(hotelId,roomIds.get(i),hotelForm.getRooms().get(i).getRoomPictures().get(j));
-//           }
            hotelMapper.insertRoomPicture(hotelId,roomIds.get(i),hotelForm.getRooms().get(i).getRoom_picture_url());
        }
     }
-    public List<Room> selectRoomByHotelId(int hotelId) {
-        return hotelMapper.selectRoomByHotelId(hotelId);
-    }
+
     public List<HotelForm> selectSpecialsHotels() {
 
         List<HotelForm> hotelForms= null;
@@ -92,38 +90,71 @@ public class HotelService {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+      hotelForms= getHotelPicturesRoom(hotelForms);
         logger.info("selectSpecialsHotels{}",hotelForms);
-       for (HotelForm hotelForm : hotelForms) {
-           if (hotelForm.getPicture_urls()!=null){
-               hotelForm.setPicture_url(Arrays.asList(hotelForm.getPicture_urls().split(",")));
-           }else {
-               hotelForm.setPicture_url(new ArrayList<>());
-               logger.info("pictures为null");
-           }
-
-           List<Room> rooms= null;
-           try {
-               rooms = hotelMapper.selectRoomByHotelId(hotelForm.getId());
-               for (Room room : rooms) {
-                   // 假设 facilities 是 List<String>
-                   List<Boolean> booleanFacilities = room.getFacilities();
-                   logger.info("booleanFacilities{}",booleanFacilities);
-                  for (int i = 0; i < booleanFacilities.size(); i++) {
-                      if (booleanFacilities.get(i).toString().equals("true")) {
-                          booleanFacilities.set(i, true);
-                      }
-                  }
-                   room.setFacilities(booleanFacilities); // 更新 facilities 为布尔值列表
-               }
-           } catch (Exception e) {
-               throw new RuntimeException(e);
-           }
-           hotelForm.setRooms(rooms);
-       }
        return hotelForms;
     }
 
-   public int SelectHotelCountByCityTime(String city, Timestamp timeStart, Timestamp timeEnd) {
-       return hotelMapper.selectHotelCountByCityTime(city,timeStart,timeEnd);
+
+
+   public Map<String,Object> SelectHotelByCityTime(String city, Timestamp timeStart, Timestamp timeEnd,int pageIndex,int pageSize) {
+       int offset = (pageIndex - 1) * pageSize;
+       int count = hotelMapper.countHotelsByCityCityTime(city,timeStart,timeEnd);
+       List<HotelForm> hotelFormList = hotelMapper.selectHotelByCityCityTime(city,timeStart,timeEnd,pageSize,offset);
+       int totalPage = count % pageSize == 0 ? count / pageSize : count / pageSize + 1;
+       logger.info("hotelFormList{}",hotelFormList);
+       hotelFormList=getHotelPicturesRoom(hotelFormList,timeStart,timeEnd);
+       Map<String,Object> result = new HashMap<>();
+       result.put("totalPage",totalPage);
+       result.put("currentPage",pageIndex);
+       result.put("hotelFormList",hotelFormList);
+       return result;
    }
+    public List<HotelForm> getHotelPicturesRoom(List<HotelForm> hotelFormList){
+        for (HotelForm hotelForm : hotelFormList) {
+            if (hotelForm.getPicture_urls()!=null){
+                hotelForm.setPicture_url(Arrays.asList(hotelForm.getPicture_urls().split(",")));
+            }else {
+                hotelForm.setPicture_url(new ArrayList<>());
+                logger.info("pictures为null");
+            }
+            List<Room> rooms= null;
+            try {
+                rooms = hotelMapper.selectRoomByHotelId(hotelForm.getId());
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+            hotelForm.setRooms(rooms);
+        }
+        return hotelFormList;
+    }
+
+    public List<HotelForm> getHotelPicturesRoom(List<HotelForm> hotelFormList,Timestamp timeStart, Timestamp timeEnd){
+        for (HotelForm hotelForm : hotelFormList) {
+            if (hotelForm.getPicture_urls()!=null){
+                hotelForm.setPicture_url(Arrays.asList(hotelForm.getPicture_urls().split(",")));
+            }else {
+                hotelForm.setPicture_url(new ArrayList<>());
+                logger.info("pictures为null");
+            }
+            List<Room> rooms= null;
+            try {
+                rooms = hotelMapper.selectRoomByHotelIdTime(hotelForm.getId(),timeStart,timeEnd);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+            hotelForm.setRooms(rooms);
+        }
+        return hotelFormList;
+    }
+    public List<Room> getHotelPicturesRoom(int hotelId,Timestamp timeStart, Timestamp timeEnd){
+
+            List<Room> rooms= null;
+            try {
+                rooms = hotelMapper.selectRoomByHotelIdTime(hotelId,timeStart,timeEnd);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+            return rooms;
+        }
 }

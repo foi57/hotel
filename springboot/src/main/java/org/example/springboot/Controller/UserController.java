@@ -59,4 +59,5 @@ Logger logger = LoggerFactory.getLogger(UserController.class);
         userService.insert(user);
     }
 
+
 }

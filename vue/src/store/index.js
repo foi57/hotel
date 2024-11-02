@@ -4,7 +4,13 @@ import {createStore} from "vuex";
 const store = createStore({
     state: {
         hotel: null, // 用于存储酒店信息
-        book: null
+        book: null,
+        pages: 0,
+        searchBox: {
+            destination: '',
+            checkInDate: '',
+            checkOutDate: '',
+        },
     },
     mutations: {
         setHotel(state, hotel) {
@@ -12,6 +18,12 @@ const store = createStore({
         },
         setBook(state, book) {
             state.book = book
+        },
+        setPages(state, pages) {
+            state.pages = pages
+        },
+        setSearchBox(state, searchBox) {
+            state.searchBox = searchBox
         }
     },
     actions: {
@@ -22,11 +34,21 @@ const store = createStore({
         updateBook({ commit }, book) {
             console.log('Updating book:', book);
             commit('setBook', book)
+        },
+        updatePages({ commit }, pages) {
+            console.log('Updating pages:', pages);
+            commit('setPages', pages)
+        },
+        updateSearchBox({ commit }, searchBox) {
+            console.log('Updating searchBox:', searchBox);
+            commit('setSearchBox', searchBox)
         }
     },
     getters: {
         getHotel: (state) => state.hotel, // 获取酒店信息
-        getBook: (state) => state.book
+        getBook: (state) => state.book,
+        getPages: (state) => state.pages,
+        getSearchBox: (state) => state.searchBox
     },
     plugins: [createPersistedState({})],
 });

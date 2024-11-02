@@ -32,8 +32,8 @@ public class BookService {
         String email = bookInfo.getEmail();
         String timeStartString = bookInfo.getTimeStart();
         String timeEndString = bookInfo.getTimeEnd();
-        Timestamp timeStart = Timestamp.valueOf(OffsetDateTime.parse(timeStartString).toLocalDateTime());
-        Timestamp timeEnd = Timestamp.valueOf(OffsetDateTime.parse(timeEndString).toLocalDateTime());
+        Timestamp timeStart = Timestamp.valueOf(OffsetDateTime.parse(timeStartString).withOffsetSameInstant(OffsetDateTime.now().getOffset()).toLocalDateTime());
+        Timestamp timeEnd = Timestamp.valueOf(OffsetDateTime.parse(timeEndString).withOffsetSameInstant(OffsetDateTime.now().getOffset()).toLocalDateTime());
 
         String arrivalTime = bookInfo.getArrivalTime();
         BigDecimal price = bookInfo.getPrice();

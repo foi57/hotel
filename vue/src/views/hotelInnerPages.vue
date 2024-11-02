@@ -6,10 +6,14 @@ import 'swiper/swiper-bundle.css'
 import Heard from "../components/heard.vue";
 import MapContainer from "../components/MapContainer.vue";
 import router from "../router/index.js";
+import hotelAPI from "../api/hotel.js";
 const store = useStore()
 const hotel = computed(() => {
   return store.getters.getHotel;
 });
+const SearchBoxRef = computed(() => {
+  return store.getters.getSearchBox;
+})
 const TimeStart = ref('');
 const TimeEnd = ref('');
 const bookCount = ref(1);
@@ -18,6 +22,11 @@ const CountDay = ref(1);
 console.log(hotel.value);
 onMounted(() => {
   MapContainerRef.value.updateCenter(hotel.value.locations);
+  if (SearchBoxRef.value) {
+    TimeStart.value = SearchBoxRef.value.checkInDate;
+    TimeEnd.value = SearchBoxRef.value.checkOutDate;
+    computeCountDay();
+  }
 })
 const book = (room) => {
   const bookInfo = {
@@ -39,6 +48,13 @@ const computeCountDay = () => {
   } else {
     CountDay.value = 1; // 默认值，或处理无效输入
   }
+}
+const OnTimeChange = () => {
+  computeCountDay();
+  hotelAPI.selectRoomByHotelIdTime(hotel.value.id, TimeStart.value, TimeEnd.value).then((res) => {
+    hotel.value.rooms = res.data;
+    console.log('OnTimeChange' ,hotel.value);
+  })
 }
 </script>
 
@@ -80,10 +96,10 @@ const computeCountDay = () => {
     <div>
       <div class="time">
         <el-form-item label="入住时间">
-          <el-date-picker v-model="TimeStart" @change="computeCountDay"></el-date-picker>
+          <el-date-picker v-model="TimeStart" @change="OnTimeChange"></el-date-picker>
         </el-form-item>
         <el-form-item label="离店时间">
-          <el-date-picker v-model="TimeEnd" @change="computeCountDay"></el-date-picker>
+          <el-date-picker v-model="TimeEnd" @change="OnTimeChange"></el-date-picker>
         </el-form-item>
       </div>
       <h2>房间情况</h2>
@@ -121,6 +137,7 @@ const computeCountDay = () => {
           </div>
         </div>
         <div class="book-info">
+          <P>剩余{{room.available_rooms}}间</P>
           <el-form-item label="请输入房间数量">
             <el-input-number v-model="bookCount"></el-input-number>
           </el-form-item>
