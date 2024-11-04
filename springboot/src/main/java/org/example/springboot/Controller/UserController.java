@@ -36,19 +36,19 @@ Logger logger = LoggerFactory.getLogger(UserController.class);
         User user = userService.login(form.get("email"), form.get("password"));
         logger.info("userid={}",user.getId());
         if (user != null) {
-            String key ="your-256-bit-secret-long-string-here";
+            String key = "your-256-bit-secret-long-string-here";
             Key keys = Keys.hmacShaKeyFor(key.getBytes());
             String token = Jwts.builder()
                     .claim("id", user.getId())
                     .claim("email", user.getEmail())
                     .claim("password", user.getPassword())
                     .claim("userName", user.getUserName())
-                    .claim("iat",new Date())
+                    .claim("iat", new Date())
                     .claim("exp", new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24))
                     .signWith(keys)
                     .compact();
             Map<String, String> resultMap = new HashMap<>();
-            resultMap.put("token",token);
+            resultMap.put("token", token);
             return ResponseEntity.ok(resultMap);
         }
         return ResponseEntity.status(401).build();

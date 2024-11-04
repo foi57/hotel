@@ -121,6 +121,7 @@ public class HotelService {
             List<Room> rooms= null;
             try {
                 rooms = hotelMapper.selectRoomByHotelId(hotelForm.getId());
+                logger.info("rooms{}",rooms);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

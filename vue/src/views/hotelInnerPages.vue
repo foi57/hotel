@@ -19,6 +19,7 @@ const TimeEnd = ref('');
 const bookCount = ref(1);
 const MapContainerRef = ref(null);
 const CountDay = ref(1);
+let selectRoom=ref(false)
 console.log(hotel.value);
 onMounted(() => {
   MapContainerRef.value.updateCenter(hotel.value.locations);
@@ -26,6 +27,7 @@ onMounted(() => {
     TimeStart.value = SearchBoxRef.value.checkInDate;
     TimeEnd.value = SearchBoxRef.value.checkOutDate;
     computeCountDay();
+    OnTimeChange();
   }
 })
 const book = (room) => {
@@ -51,10 +53,13 @@ const computeCountDay = () => {
 }
 const OnTimeChange = () => {
   computeCountDay();
-  hotelAPI.selectRoomByHotelIdTime(hotel.value.id, TimeStart.value, TimeEnd.value).then((res) => {
-    hotel.value.rooms = res.data;
-    console.log('OnTimeChange' ,hotel.value);
-  })
+  if (TimeStart.value && TimeEnd.value) {
+    hotelAPI.selectRoomByHotelIdTime(hotel.value.id, TimeStart.value, TimeEnd.value).then((res) => {
+      hotel.value.rooms = res.data;
+      selectRoom=true;
+      console.log('OnTimeChange' ,hotel.value);
+    })
+  }
 }
 </script>
 
@@ -137,7 +142,7 @@ const OnTimeChange = () => {
           </div>
         </div>
         <div class="book-info">
-          <P>剩余{{room.available_rooms}}间</P>
+          <P v-if="selectRoom">剩余{{room.available_rooms}}间</P>
           <el-form-item label="请输入房间数量">
             <el-input-number v-model="bookCount"></el-input-number>
           </el-form-item>

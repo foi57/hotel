@@ -14,6 +14,14 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
+  mail:
+    host: smtp.qq.com
+    port: 465
+    username: 2858712518@qq.com
+    password: lzbticyvndvddecd
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
 mybatis:
   type-aliases-package: org.example.springboot.entity
   mapper-locations: classpath:mapper/*.xml

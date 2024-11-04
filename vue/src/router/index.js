@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import {ElMessage} from "element-plus";
+
 
 const routes = [
     {
@@ -14,17 +16,13 @@ const routes = [
     {
         path: "/addHotel",
         name: "AddHotel",
-        component: () => import("../views/AddHotel.vue")
+        component: () => import("../views/AddHotel.vue"),
+        meta: { requiresAuth: true }
     },
     {
         path: "/enroll",
         name: "Enroll",
         component: () => import("../views/Enroll.vue")
-    },
-    {
-        path: "/addHotel",
-        name: "AddHotel",
-        component: () => import("../views/AddHotel.vue")
     },
     {
         path: "/hotelInnerPages",
@@ -34,12 +32,14 @@ const routes = [
     {
         path: "/booking",
         name: "booking",
-        component: () => import("../views/booking.vue")
+        component: () => import("../views/booking.vue"),
+        meta: { requiresAuth: true }
     },
     {
         path: "/bookInfo",
         name: "bookInfo",
-        component: () => import("../views/bookInfo.vue")
+        component: () => import("../views/bookInfo.vue"),
+        meta: {requiresAuth: true}
     },
     {
         path: "/selectHotel",
@@ -50,7 +50,21 @@ const routes = [
 
 const index = createRouter({
     history: createWebHistory('/'),
-    routes
+    routes,
+});
+
+
+index.beforeEach((to, from, next) => {
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+        if (!localStorage.getItem('token')) {
+            next({ path: '/login' });
+            ElMessage.error("请先登录");
+        } else {
+            next();
+        }
+    } else {
+        next();
+    }
 });
 
 export default index;

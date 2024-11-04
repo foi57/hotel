@@ -1,7 +1,7 @@
 <script setup>
 import {ref, onMounted, reactive} from 'vue';
 import locationData from '../assets/locationData.json'
-import {ElMessage} from "element-plus";
+import {ElMessage, ElMessageBox} from "element-plus";
 import Heard from "../components/heard.vue";
 import MapContainer from "../components/MapContainer.vue";
 import hotel from "../api/hotel.js";
@@ -10,6 +10,7 @@ const MapContainerRef = ref(null);
 const provinces = ref([]); // 省份列表
 const cities = ref([]); // 城市列表
 const districts = ref([]); // 区县列表
+const formRef = ref(null);
 const form = ref({
   name:'',
   introduction: '',
@@ -19,16 +20,30 @@ const form = ref({
   district: '',
   address: '',
   locations: [],
-  rooms: [{
-    room_name: '',
-    room_picture_url: '',
-    room_count: 1,
-    bed_type: '',
-    bed_count: 1,
-    facilities: [false, false, false, false, false, false, false, false],
-    price: 0
-  }]
+  rooms: []
 })
+
+const rules = ref({
+  name: [{ required: true, message: '请填写酒店名', trigger: 'blur' }],
+  introduction: [{ required: true, message: '请填写酒店介绍', trigger: 'blur' }],
+  province: [{ required: true, message: '请选择省份', trigger: 'change' }],
+  city: [{ required: true, message: '请选择城市', trigger: 'change' }],
+  district: [{ required: true, message: '请选择区县', trigger: 'change' }],
+  address: [{ required: true, message: '请填写具体地址', trigger: 'blur' }],
+  picture_url: [{ type: 'array', min: 1, message: '请至少上传一张酒店图片', trigger: 'change' }],
+  rooms: [{
+    type: 'array',
+    required: true,
+    message: '请添加至少一个房间',
+    trigger: 'change'
+  }],
+  'rooms[].room_name': [{ required: true, message: '请填写房间名称', trigger: 'blur' }],
+  'rooms[].room_count': [{ required: true, type: 'number', message: '请填写房间数量', trigger: 'change'  }],
+  'rooms[].price': [{ required: true, type: 'number', min: 1, message: '请填写房间价格', trigger:'change'  }],
+  'rooms[].bed_type': [{ required: true, message: '请填写床型', trigger: 'change' }],
+});
+
+
 let allAddress=ref('');
 const beds =['单人床','双人床'];
 
@@ -41,7 +56,7 @@ const addRoom = () => {
     bed_type: '',
     bed_count: 1,
     facilities: [false, false, false, false, false, false, false, false]
-    ,price: 0
+    ,price: 1
   });
 };
 const deleteHotelPictureIds = ref([]);
@@ -89,9 +104,33 @@ const handleExceed = () => {
   ElMessage.error('上传图片数量达到上限')
 }
 const onSubmit = () => {
-  console.log(form.value)
-  hotel.addHotel(form.value)
-     // router.push('/');
+  // 提交前验证表单
+  for (let i = 0; i < form.value.rooms.length; i++) {
+    if (!form.value.rooms[i].room_name || !form.value.rooms[i].room_count || !form.value.rooms[i].bed_type || !form.value.rooms[i].price) {
+      ElMessage.error('请填写完整的房间信息');
+      return false;
+    }
+  }
+  console.log(formRef.value)
+  formRef.value.validate((valid) => {
+    console.log('Validation result:', valid);
+    if (valid) {
+      hotel.addHotel(form.value)
+          .then(() => router.push('/'));
+      ElMessageBox.confirm(
+          '确认提交吗？',
+          '提示',
+          {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            type: 'warning',
+          }
+      )
+    } else {
+      ElMessage.error('请完成表单填写');
+      return false;
+    }
+  });
     }
     let upPictureIndex =ref(0)
 const HotelHandlePictureUploadSuccess = (response,file) => {
@@ -103,7 +142,8 @@ const HotelHandlePictureUploadSuccess = (response,file) => {
     console.log('PictureId',deleteHotelPictureIds.value)
 }
 const RoomHandlePictureUploadSuccess = (response,file,index) => {
-  form.value.rooms[index].room_picture_url =response;
+  form.value.rooms[index].room_picture_url =response.fileUrl;
+
 }
 const handleHotelPictureRemove = (fileName) => {
   hotel.deletePicture(fileName);
@@ -125,38 +165,37 @@ const updateLocations = (locations) => {
 <template>
   <div class="Context">
   <heard></heard>
-  <el-form class="form">
-    <el-form-item label="酒店名">
+  <el-form class="form" :rules="rules" ref="formRef" :model="form">
+    <el-form-item label="酒店名" prop="name">
       <el-input v-model="form.name"></el-input>
     </el-form-item>
-    <el-form-item label="酒店介绍">
+    <el-form-item label="酒店介绍" prop="introduction">
       <el-input type="textarea" v-model="form.introduction"></el-input>
     </el-form-item>
-    <el-form-item label="酒店图片">
+    <el-form-item label="酒店图片" prop="picture_url">
       <el-upload list-type="picture-card" accept="image/*" :before-upload="handlePictureUpdate" :limit="5" :on-exceed="handleExceed"
       :action="'http://localhost:8080/api/PictureUpload'"
       :on-success="(response, file)=>HotelHandlePictureUploadSuccess(response,file)"
-      :on-remove="(file)=>handleHotelPictureRemove(file.name)"
-      :file-list="form.picture_url"></el-upload>
+      :on-remove="(file)=>handleHotelPictureRemove(file.name)"></el-upload>
     </el-form-item>
     <div class="address-row">
-    <el-form-item label="省份">
+    <el-form-item label="省份" prop="province">
       <el-select v-model="form.province" @change="handleProvinceChange">
         <el-option v-for="province in provinces" :key="province" :label="province" :value="province"></el-option>
       </el-select>
     </el-form-item>
-    <el-form-item label="城市">
+    <el-form-item label="城市" prop="city">
       <el-select v-model="form.city" @change="handleCityChange">
         <el-option v-for="city in cities" :key="city" :label="city" :value="city"></el-option>
       </el-select>
     </el-form-item>
-    <el-form-item label="区县">
+    <el-form-item label="区县" prop="district">
       <el-select v-model="form.district" @change="mapLocation(form.province+form.city+form.district)">
         <el-option v-for="district in districts" :key="district" :label="district" :value="district"></el-option>
       </el-select>
     </el-form-item>
     </div>
-    <el-form-item label="具体地址">
+    <el-form-item label="具体地址" prop="address">
       <el-input v-model="form.address" type="textarea" @input="mapLocation(form.province+form.city+form.district+form.address)"></el-input>
     </el-form-item>
     <div class="map">
@@ -166,10 +205,10 @@ const updateLocations = (locations) => {
     <h4>住房信息</h4>
     <div class="root" v-for="(room,index) in form.rooms" :key="index">
       <h5>房间 {{ index + 1 }}</h5>
-    <el-form-item label="房间名称">
+    <el-form-item label="房间名称" :prop="`rooms[${index}].room_name`">
       <el-input v-model="room.room_name"></el-input>
     </el-form-item>
-    <el-form-item label="房间数量">
+    <el-form-item label="房间数量" :prop="`rooms[${index}].room_count`">
       <el-input-number v-model="room.room_count"></el-input-number>
     </el-form-item>
     <el-form-item label="房间图图片">
@@ -179,7 +218,7 @@ const updateLocations = (locations) => {
                  :on-remove="(file)=>handleRoomPictureRemove(file.name,index)"></el-upload>
     </el-form-item>
       <div class="bed">
-     <el-form-item label="床类型">
+     <el-form-item label="床类型" :prop="`rooms[${index}].bed_type`">
        <el-select v-model="room.bed_type">
          <el-option v-for="bed in beds" :key="bed" :label="bed" :value="bed"></el-option>
        </el-select>
@@ -216,7 +255,7 @@ const updateLocations = (locations) => {
           <el-checkbox v-model="room.facilities[7]">厨房</el-checkbox>
         </el-form-item>
       </div>
-      <el-form-item label="价格">
+      <el-form-item label="价格" :prop="`rooms[${index}].price`">
         <el-input-number v-model="room.price"></el-input-number>
       </el-form-item>
     </div>

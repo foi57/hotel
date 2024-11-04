@@ -152,7 +152,6 @@ public class HotelController {
         LocalDateTime dateTimeEnd = LocalDateTime.parse(timeEnd, formatter);
         Timestamp timestampStart = Timestamp.valueOf(dateTimeStart.atZone(ZoneId.of("UTC")).withZoneSameInstant(ZoneId.systemDefault()).toLocalDateTime());
         Timestamp timestampEnd = Timestamp.valueOf(dateTimeEnd.atZone(ZoneId.of("UTC")).withZoneSameInstant(ZoneId.systemDefault()).toLocalDateTime());
-        logger.info("timestampStart{},timestampEnd{}",timestampStart,timestampEnd);
         return Arrays.asList(timestampStart,timestampEnd);
     }
 }
