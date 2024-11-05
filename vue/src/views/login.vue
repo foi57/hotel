@@ -60,7 +60,7 @@ const  handleLogin = () => {
       <el-button type="primary" @click="handleLogin">登录</el-button>
     </el-form-item>
   </el-form>
-
+<router-link to="/enroll">没有账号？点击注册</router-link>
 </div>
 </template>
 

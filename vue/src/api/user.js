@@ -15,5 +15,13 @@ export default {
             method: 'post',
             data: form
         })
+    },
+    sendCode: (form) => {
+        console.log(form)
+        return request({
+            url: '/emailVerify',
+            method: 'post',
+            params: form
+        })
     }
 }

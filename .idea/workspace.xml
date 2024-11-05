@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36e48345-8858-47b1-810f-9b1995180da5" name="更改" comment="2">
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Service/EmailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/entity/RoomPicture.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/test/java/org/example/springboot/Service/EmailServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/components/LeftSidebar.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/views/hotelManagement.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/a1032884-ec18-4364-8498-4543b28aeda7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a1032884-ec18-4364-8498-4543b28aeda7.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#ib_16384_0.dblwr" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/#ib_16384_0.dblwr" afterDir="false" />
@@ -17,48 +17,23 @@
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_6.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_6.ibt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_7.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_7.ibt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_8.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_8.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/hotel/hotel.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/hotel/hotel.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/hotel/user.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/hotel/user.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/ibdata1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/ibtmp1" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/ibtmp1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/mysql.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/mysql.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/undo_001" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/undo_001" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/undo_002" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/undo_002" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Config/MyBatisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Config/MyBatisConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Controller/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Controller/HotelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Service/HotelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Service/HotelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Service/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Service/EmailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/mapper/UserMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/001a03cc-fda1-465c-9905-0a2972ba2c09.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/0e9ba666-9751-4127-839b-641c0ca5adcb.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/118c642f-c48b-4626-b960-9bd1e7116bae.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/1efd999e-7055-4018-ba64-ec1c2d3e5aff.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/3959d8e8-7220-4180-b202-a144876c7c2e.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/3fe1bcd3-3738-43ef-b1db-84ecddc0004c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/4986c475-2c2a-4abb-aa50-3659706f2d41.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/597f6505-9d88-4c69-8bfc-d393dedf0381.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/62848d51-d4d6-454a-bc19-bb000cc1e51a.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/6c089cba-d92d-4050-98b1-02f830541ee7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/7643135e-4da0-4a1d-a7b3-b981055bd3af.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/7c775b35-4b24-4531-aef5-8c5036d6cc82.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/7f5e932d-f166-446f-8239-bd97048796c0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/9ad5cbcd-cce0-47f4-be82-3a5732dcd06d.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/a6667a35-127b-4126-9918-7aad3de56a90.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/b69e3b4e-a523-4cc9-a8e8-5e8fa2d1c07c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/b8805eb0-8adf-4bd7-a6f5-08073d3bcb39.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/cec4fb21-3b68-4228-8506-3823e2c82493.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/d48791c4-2759-4bab-bbd1-92ee8f757c13.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/de135584-6731-44c1-8dc0-120491ecde2c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/e1759b29-018a-4cf2-84f1-b4f43b87ea28.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/e9b30ef6-947a-44b8-980a-4539f30acf8e.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/ebd37f3f-8866-4e90-bae9-9965038c1796.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/ebeda6ba-62f0-4b1c-b6ad-47ddfe9a328c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/ecd2d8d4-adc8-4dfd-b3b0-8f4b5d4b4b0b.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/static/files/ff2f34c3-555b-42f3-a27a-d95e5caf935b.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/components/heard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/heard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/api/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/addHotel.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/addHotel.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/hotelInnerPages.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/hotelInnerPages.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/enroll.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/enroll.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/login.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,9 +48,9 @@
         <option value="spring-beans.schema" />
         <option value="Interface" />
         <option value="JavaScript File" />
-        <option value="Vue Composition API Component" />
         <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Vue Composition API Component" />
       </list>
     </option>
   </component>
@@ -103,54 +78,54 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Docker.docker/Dockerfile.executor": "Run",
-    "Docker.docker: Compose 部署.executor": "Run",
-    "Docker.springboot.mysql: Compose 部署.executor": "Run",
-    "Docker.springboot/Dockerfile.executor": "Run",
-    "Docker.springboot: Compose 部署.executor": "Run",
-    "HTTP 请求.generated-requests中的所有.executor": "Run",
-    "JUnit.EmailServiceTest.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.SpringbootApplication.executor": "Run",
-    "com.codeium.enabled": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "jdk.selected.JAVA_MODULE": "23",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/code/vue/hotel/springboot/src/main/resources/static/files",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "npm.npm dev.executor": "Run",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "E:\\IntelliJ IDEA 2024.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Docker.docker/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker: Compose 部署.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.springboot.mysql: Compose 部署.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.springboot/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.springboot: Compose 部署.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP 请求.generated-requests中的所有.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.EmailServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.SpringbootApplication.executor&quot;: &quot;Run&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;23&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/code/vue/hotel/springboot/src/main/resources/static/files&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.npm dev.executor&quot;: &quot;Run&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;E:\\IntelliJ IDEA 2024.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ],
-    "vue.recent.templates": [
-      "Vue Options API Component",
-      "Vue Composition API Component"
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Options API Component&quot;,
+      &quot;Vue Composition API Component&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\code\vue\hotel\springboot\src\main\resources\static\files" />
@@ -171,7 +146,7 @@
       <recent name="org.example.springboot.Service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.EmailServiceTest">
+  <component name="RunManager" selected="Spring Boot.SpringbootApplication">
     <configuration name="hotel" type="CompoundRunConfigurationType">
       <toRun name="npm dev" type="js.build_tools.npm" />
       <toRun name="SpringbootApplication" type="SpringBootApplicationConfigurationType" />
@@ -344,7 +319,8 @@
       <workItem from="1730620581980" duration="100000" />
       <workItem from="1730627381173" duration="1185000" />
       <workItem from="1730642909232" duration="4255000" />
-      <workItem from="1730698863311" duration="7838000" />
+      <workItem from="1730698863311" duration="15588000" />
+      <workItem from="1730774347775" duration="5839000" />
     </task>
     <task id="LOCAL-00001" summary="addhotel1">
       <option name="closed" value="true" />
@@ -426,7 +402,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730561528040</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="2">
+      <option name="closed" value="true" />
+      <created>1730708670864</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1730708670864</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

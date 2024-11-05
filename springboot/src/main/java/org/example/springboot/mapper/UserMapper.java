@@ -16,6 +16,8 @@ public interface UserMapper {
     @Select("SELECT * FROM user where email=#{userName} and password=#{password}")
     User login(String userName, String password);
 
+    @Select("SELECT * from user where email=#{userName}")
+    User selectUserByEmail(@Param("userName") String userName);
     @Options(useGeneratedKeys = true, keyProperty = "id") // 这里指向 Picture 对象的 id
     @Insert("INSERT INTO picture(UUID, fileName) VALUES (#{uuid}, #{fileName})")
     void addPicture(Picture picture);

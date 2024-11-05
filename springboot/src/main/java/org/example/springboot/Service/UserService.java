@@ -21,4 +21,8 @@ public class UserService {
     public User login(String email, String password) {
         return userMapper.login(email, password);
     }
+
+    public User SelectUserByEmail(String email) {
+        return userMapper.selectUserByEmail(email);
+    }
 }

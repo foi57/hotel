@@ -45,6 +45,12 @@ const routes = [
         path: "/selectHotel",
         name: "selectHotel",
         component: () => import("../views/selectHotel.vue")
+    },
+    {
+        path: "/hotelManagement",
+        name: "hotelManagement",
+        component: () => import("../views/hotelManagement.vue"),
+        meta: {requiresAuth: true}
     }
 ];
 

@@ -15,6 +15,7 @@ public class EmailService {
 
     public void sendVerificationEmail(String to, String subject, String text){
         SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("2858712518@qq.com");
         message.setTo(to);
         message.setSubject(subject);
         message.setText(text);

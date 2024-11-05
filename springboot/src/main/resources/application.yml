@@ -21,9 +21,12 @@ spring:
     password: lzbticyvndvddecd
     properties:
       mail.smtp.auth: true
-      mail.smtp.starttls.enable: true
+      mail.smtp.ssl.enable: true
 mybatis:
   type-aliases-package: org.example.springboot.entity
   mapper-locations: classpath:mapper/*.xml
 server:
   url: http://localhost:8080
+
+jwt:
+  secret: your-256-bit-secret-long-string-here
