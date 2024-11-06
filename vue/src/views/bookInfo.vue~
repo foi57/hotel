@@ -27,7 +27,6 @@ const canChargeBack = (timeStart) => {
 }
 const chargeBacks = (order) => {
   if (canChargeBack(order.timeStart)) {
-    order.state = "已退单";
     book.UpdateStateBook(order.id, "已退单");
     ElMessage.success("退单成功");
   } else {

@@ -11,7 +11,8 @@ const hotelList = computed(() => {
 })
 const InnerPager = (hotel) => {
   store.dispatch("updateHotel",hotel);
-  router.push("/hotelInnerPages");
+
+  router.push(store.getters.getSelectHotel);
 }
 const lowestPrice = (hotel) => {
   let min = hotel.rooms[0].price

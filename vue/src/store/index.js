@@ -11,6 +11,7 @@ const store = createStore({
             checkInDate: '',
             checkOutDate: '',
         },
+        selectHotel: null
     },
     mutations: {
         setHotel(state, hotel) {
@@ -24,6 +25,9 @@ const store = createStore({
         },
         setSearchBox(state, searchBox) {
             state.searchBox = searchBox
+        },
+        setSelectHotel(state, selectHotel) {
+            state.selectHotel = selectHotel
         }
     },
     actions: {
@@ -42,6 +46,10 @@ const store = createStore({
         updateSearchBox({ commit }, searchBox) {
             console.log('Updating searchBox:', searchBox);
             commit('setSearchBox', searchBox)
+        },
+        updateSelectHotel({ commit }, selectHotel) {
+            console.log('Updating selectHotel:', selectHotel);
+            commit('setSelectHotel', selectHotel)
         }
     },
     getters: {
@@ -49,6 +57,7 @@ const store = createStore({
         getBook: (state) => state.book,
         getPages: (state) => state.pages,
         getSearchBox: (state) => state.searchBox
+        , getSelectHotel: (state) => state.selectHotel
     },
     plugins: [createPersistedState({})],
 });

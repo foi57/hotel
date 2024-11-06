@@ -12,5 +12,6 @@ public class BookView {
     private String room_name;
     private String room_count;
     private String price;
+    private String state;
     private String bookTime;
 }

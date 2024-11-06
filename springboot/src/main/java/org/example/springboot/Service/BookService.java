@@ -34,16 +34,23 @@ public class BookService {
         String timeEndString = bookInfo.getTimeEnd();
         Timestamp timeStart = Timestamp.valueOf(OffsetDateTime.parse(timeStartString).withOffsetSameInstant(OffsetDateTime.now().getOffset()).toLocalDateTime());
         Timestamp timeEnd = Timestamp.valueOf(OffsetDateTime.parse(timeEndString).withOffsetSameInstant(OffsetDateTime.now().getOffset()).toLocalDateTime());
-
+        String state = "已预订";
         String arrivalTime = bookInfo.getArrivalTime();
         BigDecimal price = bookInfo.getPrice();
         logger.info("room_id{}",room_id);
         LocalDateTime localDateTime = LocalDateTime.now();
-        bookMapper.insertBook(room_id, user_id, room_count, name, phone, email, timeStart, timeEnd, arrivalTime, price, localDateTime);
+        bookMapper.insertBook(room_id, user_id, room_count, name, phone, email, timeStart, timeEnd, arrivalTime, price, localDateTime,state);
     }
 
     public List<BookView> getBook(int userId) {
         return bookMapper.selectBookByUserId(userId);
     }
 
+    public void deleteBook(int id) {
+        bookMapper.deleteBook(id);
+    }
+
+    public void UpdateStateBook(int id ,String state) {
+        bookMapper.UpdateStateBook(id,state);
+    }
 }

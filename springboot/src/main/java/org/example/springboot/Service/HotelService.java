@@ -55,7 +55,7 @@ public class HotelService {
              try {
                  String facilitiesString = objectMapper.writeValueAsString(facilities);
                  hotelMapper.insertRoom(hotelId,room,facilitiesString);
-                 roomIds.add(room.getId()); ;
+                 roomIds.add(Integer.valueOf(room.getId())); ;
              } catch (JsonProcessingException e) {
                  throw new RuntimeException(e);
              }

@@ -23,15 +23,5 @@ export default {
                 bookId
             }
         })
-    },
-    UpdateStateBook: (bookId,state) => {
-        return request({
-            url: '/UpdateStateBook',
-            method: 'post',
-            params: {
-                bookId,
-                state
-            }
-        })
     }
 }

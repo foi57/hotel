@@ -51,12 +51,6 @@ const routes = [
         name: "hotelManagement",
         component: () => import("../views/hotelManagement.vue"),
         meta: {requiresAuth: true}
-    },
-    {
-        path: "/viewRoom",
-        name: "viewRoom",
-        component: () => import("../views/viewRoom.vue"),
-        meta: {requiresAuth: true}
     }
 ];
 

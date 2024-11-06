@@ -44,7 +44,7 @@ public interface HotelMapper {
             "LEFT JOIN ( " +
             "    SELECT room_id, SUM(room_count) AS room_count " +
             "    FROM book " +
-            "    WHERE TimeStart < #{timeEnd} AND TimeEnd > #{timeStart} " +
+            "    WHERE TimeStart < #{timeEnd} AND TimeEnd > #{timeStart}  AND state != '已退单'" +
             "    GROUP BY room_id " +
             ") AS booked ON booked.room_id = room.id " +
             "WHERE hotel.city = #{city} " +
@@ -64,7 +64,7 @@ public interface HotelMapper {
             "LEFT JOIN ( " +
             "    SELECT room_id, SUM(room_count) AS room_count " +
             "    FROM book " +
-            "    WHERE TimeStart < #{timeEnd} AND TimeEnd > #{timeStart} " +
+            "    WHERE TimeStart < #{timeEnd} AND TimeEnd > #{timeStart} AND state != '已退单'" +
             "    GROUP BY room_id " +
             ") AS booked ON booked.room_id = room.id " +
             "WHERE hotel.city = #{city} " +
@@ -81,7 +81,7 @@ public interface HotelMapper {
             "LEFT JOIN ( " +
             "    SELECT room_id, SUM(room_count) AS room_count " +
             "    FROM book " +
-            "    WHERE TimeStart < #{timeEnd} AND TimeEnd > #{timeStart} " +
+            "    WHERE TimeStart < #{timeEnd} AND TimeEnd > #{timeStart} AND state != '已退单'" +
             "    GROUP BY room_id " +
             ") AS booked ON booked.room_id = room.id " +
             "WHERE room.hotel_id = #{hotelId} " +

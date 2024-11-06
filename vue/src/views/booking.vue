@@ -30,7 +30,7 @@ const form = ref({
   phone: '',
   email: '',
   arrivalTime: '',
-  price: bookInfo.value.info.price
+  price: bookInfo.value.info.price,
 })
 const onSubmit = () => {
   console.log(form.value)

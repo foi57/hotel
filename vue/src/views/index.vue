@@ -25,6 +25,7 @@ onMounted(async () => {
         store.dispatch("updateHotel",hotelList.value);
         console.log(hotelList.value)
       })
+  await store.dispatch("updateSelectHotel", "/hotelInnerPages")
 })
 
 </script>

@@ -37,4 +37,16 @@ public class BookController {
         logger.info("bookView{}",bookViewList);
          return bookViewList;
     }
+    @PostMapping("/deleteBook")
+    public void deleteBook(@RequestParam("bookId") String Sid) {
+        int id = Integer.parseInt(Sid);
+        logger.info("bookInfoID{}",id);
+        bookService.deleteBook(id);
+    }
+    @PostMapping("/UpdateStateBook")
+    public void backBook(@RequestParam("bookId") String Sid,@RequestParam("state") String state) {
+        int id = Integer.parseInt(Sid);
+        logger.info("bookInfoID{},state{}",id,state);
+        bookService.UpdateStateBook(id,state);
+    }
 }

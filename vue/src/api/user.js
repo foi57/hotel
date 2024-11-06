@@ -23,5 +23,6 @@ export default {
             method: 'post',
             params: form
         })
-    }
+    },
+
 }
