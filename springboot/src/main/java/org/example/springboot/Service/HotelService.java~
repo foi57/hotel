@@ -120,7 +120,7 @@ public class HotelService {
         logger.info("ByUserIdHotelFormList{}",hotelFormList);
         return hotelFormList;
     }
-
+   
     public List<HotelForm> getHotelPicturesRoom(List<HotelForm> hotelFormList){
         for (HotelForm hotelForm : hotelFormList) {
             if (hotelForm.getPicture_urls()!=null){

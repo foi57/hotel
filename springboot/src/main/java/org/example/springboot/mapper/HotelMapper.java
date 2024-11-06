@@ -90,6 +90,13 @@ public interface HotelMapper {
                                        @Param("timeStart") Timestamp timeStart,
                                        @Param("timeEnd") Timestamp timeEnd);
 
-//    @Select("SELECT COUNT(*) from room,hotel where  hotel.city=#{city} and  room.hotel_id=hotel.id and room.id not IN (SELECT room_id from book where TimeStart <= #{timeEnd} and TimeEnd > #{timeStart}) ")
-//    int selectHotelCountByCityTime(@Param("city") String city,@Param("timeStart") Timestamp timeStart,@Param("timeEnd") Timestamp timeEnd);
+    @Select("SELECT hotel.*,GROUP_CONCAT(hotel_pictures.picture_url) as picture_urls  from hotel join hotel_pictures on  hotel.id=hotel_pictures.hotel_id join user on user.id=hotel.userId group by hotel.id LIMIT #{pageSize} OFFSET #{offset}")
+    List<HotelForm> hotelList(@Param("pageSize") int pageSize, @Param("offset") int offset);
+
+    @Select("SELECT COUNT(DISTINCT hotel.id)" +
+            "from hotel where hotel.userId=#{userId}")
+    int selectHotelCountByUserId(int userId);
+
+    @Select("SELECT hotel.*,GROUP_CONCAT(hotel_pictures.picture_url) as picture_urls  from hotel join hotel_pictures on  hotel.id=hotel_pictures.hotel_id where hotel.userId=#{userId} group by hotel.id  LIMIT #{pageSize} OFFSET #{offset}")
+    List<HotelForm> selectHotelsByUserId(@Param("userId") int userId, @Param("pageSize") int pageSize, @Param("offset") int offset);
 }

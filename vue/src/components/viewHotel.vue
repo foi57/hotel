@@ -5,6 +5,7 @@ import {useStore} from "vuex";
 const store = useStore()
 const hotelList = computed(() => {
   const hotel=store.getters.getHotel;
+  
   console.log(hotel)
   return hotel;
 })

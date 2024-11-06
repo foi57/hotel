@@ -36,6 +36,10 @@ public class HotelController {
     @Value("${server.url}")
     private String serverUrl;
     HotelService hotelService;
+
+    @Value("${jwt.secret}")
+    private  String secretKey;
+
     @Autowired
     HotelController(HotelService hotelService) {
         this.hotelService = hotelService;
@@ -121,9 +125,8 @@ public class HotelController {
         try {
             if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
                 String token = authorizationHeader.substring(7);
-                String key = "your-256-bit-secret-long-string-here";
                 Claims claims=Jwts.parser()
-                        .setSigningKey(key.getBytes())
+                        .setSigningKey(secretKey.getBytes())
                         .parseClaimsJws(token)
                         .getBody();
                 id = claims.get("id", Integer.class);
@@ -153,5 +156,10 @@ public class HotelController {
         Timestamp timestampStart = Timestamp.valueOf(dateTimeStart.atZone(ZoneId.of("UTC")).withZoneSameInstant(ZoneId.systemDefault()).toLocalDateTime());
         Timestamp timestampEnd = Timestamp.valueOf(dateTimeEnd.atZone(ZoneId.of("UTC")).withZoneSameInstant(ZoneId.systemDefault()).toLocalDateTime());
         return Arrays.asList(timestampStart,timestampEnd);
+    }
+    @PostMapping("/selectHotelByUserId")
+    public List<HotelForm> selectHotelByUserId(@RequestParam("page") int page, @RequestParam("pageSize") int pageSize,@RequestHeader("Authorization") String authorizationHeader) {
+        int userId = getUserId(authorizationHeader);
+        return hotelService.selectHotelByUserId(userId,page,pageSize);
     }
 }

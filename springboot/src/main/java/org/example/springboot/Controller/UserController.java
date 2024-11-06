@@ -30,7 +30,7 @@ public class UserController {
     UserService userService;
     EmailService emailService;
     @Value("${jwt.secret}")
-    private String secretKey;
+    private  String secretKey;
 Logger logger = LoggerFactory.getLogger(UserController.class);
     @Autowired
     public UserController(UserService userService, EmailService emailService) {

@@ -30,6 +30,9 @@ const handleLogin = () => {
 const showBook = () => {
   router.push('/bookInfo')
 }
+const hotelManagement = () => {
+  router.push('/hotelManagement')
+}
 </script>
 
 <template>
@@ -38,7 +41,7 @@ const showBook = () => {
     <label class="user" @mouseover="showDropdown=true" @click="handleLogin">{{userName}}</label>
     <div class="dropdown" v-if="showDropdown&&userName!=='登录'" >
       <ul>
-        <li>个人信息</li>
+        <li @click="hotelManagement">管理我的酒店</li>
         <li @click="showBook">我的订单</li>
         <li @click="handleLogout">退出</li>
       </ul>

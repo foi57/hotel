@@ -48,5 +48,15 @@ export default {
                 timeEnd
             }
         })
+    },
+
+    selectHotelByUserId: (page,pageSize) => {
+        return request({
+            url: '/selectHotelByUserId',
+            method: 'post',
+            params: {
+                page,pageSize
+            }
+        })
     }
 }

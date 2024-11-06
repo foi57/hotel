@@ -4,7 +4,7 @@
 
 <template>
 <div class="leftSidebar">
-<router-link to="/hotelManagement">酒店管理</router-link>
+<router-link to="/hotelManagement">我的酒店</router-link>
 </div>
 </template>
 

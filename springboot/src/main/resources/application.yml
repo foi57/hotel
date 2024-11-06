@@ -29,4 +29,4 @@ server:
   url: http://localhost:8080
 
 jwt:
-  secret: your-256-bit-secret-long-string-here
+  secret: your-256-bit-secret-long-string-here-with-at-least-32-characters-long

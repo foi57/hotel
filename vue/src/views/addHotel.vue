@@ -111,9 +111,7 @@ const onSubmit = () => {
       return false;
     }
   }
-  console.log(formRef.value)
   formRef.value.validate((valid) => {
-    console.log('Validation result:', valid);
     if (valid) {
       hotel.addHotel(form.value)
           .then(() => router.push('/'));
