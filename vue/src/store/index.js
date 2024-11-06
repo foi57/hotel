@@ -11,7 +11,8 @@ const store = createStore({
             checkInDate: '',
             checkOutDate: '',
         },
-        selectHotel: null
+        selectHotel: null,
+        removeHotelFromList: null
     },
     mutations: {
         setHotel(state, hotel) {
@@ -28,6 +29,12 @@ const store = createStore({
         },
         setSelectHotel(state, selectHotel) {
             state.selectHotel = selectHotel
+        },
+        // 在 Vuex 的 mutations 中
+        REMOVE_HOTEL(state, hotelId) {
+            console.log('Removing hotel:', hotelId);
+            state.hotel = state.hotel.filter(hotel => hotel.id !== hotelId);
+            console.log(state.hotel);
         }
     },
     actions: {
@@ -50,6 +57,9 @@ const store = createStore({
         updateSelectHotel({ commit }, selectHotel) {
             console.log('Updating selectHotel:', selectHotel);
             commit('setSelectHotel', selectHotel)
+        },
+        updateRemoveHotelFromList({ commit }, hotelId) {
+            commit('REMOVE_HOTEL', hotelId)
         }
     },
     getters: {
@@ -57,7 +67,8 @@ const store = createStore({
         getBook: (state) => state.book,
         getPages: (state) => state.pages,
         getSearchBox: (state) => state.searchBox
-        , getSelectHotel: (state) => state.selectHotel
+        , getSelectHotel: (state) => state.selectHotel,
+        getRemoveHotelFromList: (state) => state.removeHotelFromList
     },
     plugins: [createPersistedState({})],
 });

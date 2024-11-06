@@ -141,6 +141,9 @@ public class HotelService {
         return hotelFormList;
     }
 
+    public void deleteHotelById(int id) {
+        hotelMapper.deleteHotelById(id);
+    }
     public List<HotelForm> getHotelPicturesRoom(List<HotelForm> hotelFormList,Timestamp timeStart, Timestamp timeEnd){
         for (HotelForm hotelForm : hotelFormList) {
             if (hotelForm.getPicture_urls()!=null){
@@ -170,5 +173,10 @@ public class HotelService {
             return rooms;
         }
 
+    public int updateHotel(HotelForm hotelForm) {
+//        hotelMapper.updateHotel(hotelForm);
+//        hotelMapper.deleteHotelPicture(hotelForm.getId());
+        return 0;
+    }
 
 }

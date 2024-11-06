@@ -1,14 +1,11 @@
 package org.example.springboot.mapper;
 
 import org.apache.ibatis.annotations.*;
-import org.apache.ibatis.type.MappedTypes;
 import org.example.springboot.Config.BooleanListTypeHandler;
 import org.example.springboot.Config.StringListTypeHandler;
-import org.example.springboot.entity.BookInfo;
 import org.example.springboot.entity.HotelForm;
 import org.example.springboot.entity.Room;
 
-import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.List;
 @Mapper
@@ -97,6 +94,25 @@ public interface HotelMapper {
             "from hotel where hotel.userId=#{userId}")
     int selectHotelCountByUserId(int userId);
 
+    @Results({@Result(property = "locations", column = "locations", typeHandler = StringListTypeHandler.class)})
     @Select("SELECT hotel.*,GROUP_CONCAT(hotel_pictures.picture_url) as picture_urls  from hotel join hotel_pictures on  hotel.id=hotel_pictures.hotel_id where hotel.userId=#{userId} group by hotel.id  LIMIT #{pageSize} OFFSET #{offset}")
     List<HotelForm> selectHotelsByUserId(@Param("userId") int userId, @Param("pageSize") int pageSize, @Param("offset") int offset);
+
+    @Delete("DELETE hotel, room, hotel_pictures, room_pictures \n" +
+            "FROM hotel \n" +
+            "JOIN hotel_pictures ON hotel.id = hotel_pictures.hotel_id\n" +
+            "JOIN room ON hotel.id = room.hotel_id\n" +
+            "JOIN room_pictures ON room.id = room_pictures.room_id\n" +
+            "WHERE hotel.id = #{id};\n")
+    void deleteHotelById(int id) ;
+
+
+    @Update("update hotel set name=#{form.name} and introduction=#{form.introduction} and province=#{form.province} " +
+            "and city=#{form.city} and district=#{form.district} and address=#{form.address} and locations=#{locations} " +
+            "where id=#{id}")
+    void updateHotel(@Param("form") HotelForm hotelForm,@Param("location") String location);
+
+    @Delete("DELETE  from hotel_pictures where hotel_id=#{id}")
+    void deleteHotelPicture(int id);
+
 }

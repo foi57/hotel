@@ -162,4 +162,12 @@ public class HotelController {
         int userId = getUserId(authorizationHeader);
         return hotelService.selectHotelByUserId(userId,page,pageSize);
     }
+    @PostMapping("deleteHotelById")
+    public void deleteHotelById(@RequestParam("id") int id) {
+        hotelService.deleteHotelById(id);
+    }
+    @PostMapping("/updateHotel")
+    public void updateHotel(@RequestBody HotelForm hotelForm){
+        logger.info("updateHotel{}",hotelForm);
+    }
 }

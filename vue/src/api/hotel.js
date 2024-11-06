@@ -58,5 +58,21 @@ export default {
                 page,pageSize
             }
         })
-    }
+    },
+    deleteHotelById: (id) => {
+        return request({
+            url: '/deleteHotelById',
+            method: 'post',
+            params: {
+                id
+            }
+        })
+    },
+    updateHotel: (form) => {
+        return request({
+            url:"/updateHotel",
+            method: "post",
+            data: form
+        })
+}
 }

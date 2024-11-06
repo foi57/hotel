@@ -1,11 +1,13 @@
 <script setup>
-import {ref, onMounted, reactive} from 'vue';
+import {ref, onMounted, } from 'vue';
 import locationData from '../assets/locationData.json'
 import {ElMessage, ElMessageBox} from "element-plus";
 import Heard from "../components/heard.vue";
 import MapContainer from "../components/MapContainer.vue";
 import hotel from "../api/hotel.js";
 import router from "../router/index.js";
+import {useStore} from "vuex";
+const store = useStore()
 const MapContainerRef = ref(null);
 const provinces = ref([]); // 省份列表
 const cities = ref([]); // 城市列表
@@ -22,7 +24,10 @@ const form = ref({
   locations: [],
   rooms: []
 })
-
+onMounted(() => {
+  const hotel = store.getters.getHotel;
+  console.log('getHotel',hotel)
+})
 const rules = ref({
   name: [{ required: true, message: '请填写酒店名', trigger: 'blur' }],
   introduction: [{ required: true, message: '请填写酒店介绍', trigger: 'blur' }],
