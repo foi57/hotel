@@ -94,7 +94,7 @@ const deleteHotel = async (hotel) => {
   transform: scale(1.25);
 }
 .hotelCard img{
-  height:auto;
+  max-height:250px;
   max-width: 300px;
 
 }

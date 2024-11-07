@@ -38,9 +38,11 @@ public class HotelService {
         return picture.getId(); // 此时应该能正确获取生成的 ID
     }
 
-    public String SelectPicture(String fileName) {
-        logger.info("DeleteFileName{}",fileName);
-        return userMapper.selectPicture(fileName);
+    public String SelectPicture(String id) {
+        return userMapper.selectPicture(id);
+    }
+    public void deletePicture(String id) {
+        userMapper.deletePicture(id);
     }
     public void insertHotelPicture(int hotelId,HotelForm hotelForm) {
         for (int i = 0; i < hotelForm.getPicture_url().size(); i++) {
@@ -172,11 +174,15 @@ public class HotelService {
             }
             return rooms;
         }
-
-    public int updateHotel(HotelForm hotelForm) {
-//        hotelMapper.updateHotel(hotelForm);
-//        hotelMapper.deleteHotelPicture(hotelForm.getId());
-        return 0;
+    @Transactional
+    public void updateHotel(HotelForm hotelForm) throws JsonProcessingException {
+        logger.info("updateHotel{}",hotelForm);
+        String location = objectMapper.writeValueAsString(hotelForm.getLocations());
+        hotelMapper.updateHotel(hotelForm,location);
+        hotelMapper.deleteHotelPicture(hotelForm.getId());
+        for (String pictureUrl : hotelForm.getPicture_url()) {
+            hotelMapper.insertHotelPicture(hotelForm.getId(), pictureUrl);
+        }
     }
 
 }

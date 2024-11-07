@@ -108,6 +108,7 @@ const OnTimeChange = () => {
         </el-form-item>
       </div>
       <h2>房间情况</h2>
+      <div v-if="hotel.rooms && hotel.rooms.length > 0">
       <div v-for="room in hotel.rooms" :key="room" class="room">
         <img :src="room.room_picture_url">
         <div class="room-info">
@@ -150,11 +151,12 @@ const OnTimeChange = () => {
           <el-button type="primary" @click="book(room)">预订</el-button>
         </div>
       </div>
-
+    </div>
+      <h2 v-else>暂无房间</h2>
       <br>
-
     </div>
   </div>
+
 </template>
 
 <style scoped>

@@ -107,9 +107,9 @@ public interface HotelMapper {
     void deleteHotelById(int id) ;
 
 
-    @Update("update hotel set name=#{form.name} and introduction=#{form.introduction} and province=#{form.province} " +
-            "and city=#{form.city} and district=#{form.district} and address=#{form.address} and locations=#{locations} " +
-            "where id=#{id}")
+    @Update("update hotel set name=#{form.name},introduction=#{form.introduction},province=#{form.province}, " +
+            "city=#{form.city},district=#{form.district},address=#{form.address},locations=#{location} " +
+            "where id=#{form.id}")
     void updateHotel(@Param("form") HotelForm hotelForm,@Param("location") String location);
 
     @Delete("DELETE  from hotel_pictures where hotel_id=#{id}")

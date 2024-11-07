@@ -1,9 +1,6 @@
 package org.example.springboot.mapper;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.example.springboot.entity.Picture;
 import org.example.springboot.entity.User;
 import org.springframework.data.repository.query.Param;
@@ -21,6 +18,8 @@ public interface UserMapper {
     @Options(useGeneratedKeys = true, keyProperty = "id") // 这里指向 Picture 对象的 id
     @Insert("INSERT INTO picture(UUID, fileName) VALUES (#{uuid}, #{fileName})")
     void addPicture(Picture picture);
-    @Select("SELECT UUID FROM picture WHERE fileName=#{fileName}")
-    String selectPicture(String fileName);
+    @Select("SELECT UUID FROM picture WHERE id=#{id}")
+    String selectPicture(String id);
+    @Delete("DELETE from picture where id=#{id}")
+    void deletePicture(String id);
 }

@@ -120,41 +120,32 @@ const onSubmit = () => {
     if (valid) {
       hotel.addHotel(form.value)
           .then(() => router.push('/'));
-      ElMessageBox.confirm(
-          '确认提交吗？',
-          '提示',
-          {
-            confirmButtonText: '确定',
-            cancelButtonText: '取消',
-            type: 'warning',
-          }
-      )
+
     } else {
       ElMessage.error('请完成表单填写');
       return false;
     }
   });
     }
-    let upPictureIndex =ref(0)
+
 const HotelHandlePictureUploadSuccess = (response,file) => {
   console.log('upPicture',file)
     form.value.picture_url.push(response.fileUrl);
     console.log('PictureUrl',form.value.picture_url)
-    deleteHotelPictureIds.value.push({index:upPictureIndex,fileName:file.name});
-    upPictureIndex=upPictureIndex+1;
-    console.log('PictureId',deleteHotelPictureIds.value)
 }
 const RoomHandlePictureUploadSuccess = (response,file,index) => {
   form.value.rooms[index].room_picture_url =response.fileUrl;
 
 }
-const handleHotelPictureRemove = (fileName) => {
-  hotel.deletePicture(fileName);
-  const index = deleteHotelPictureIds.value.findIndex(item => item.fileName === fileName);
-  form.value.picture_url.splice(index,1);
+const handleHotelPictureRemove = async (file) => {
+  const urlIndex = form.value.picture_url.findIndex(url => file.response.fileUrl === url);
+  await hotel.deletePicture(file.response.id)
+  if (urlIndex !== -1) {
+    form.value.picture_url.splice(urlIndex, 1);
+  }
 }
-const handleRoomPictureRemove = (fileName,roomIndex) => {
-  hotel.deletePicture(fileName);
+const handleRoomPictureRemove = async (file,roomIndex) => {
+   await hotel.deletePicture(file.id);
   form.value.rooms[roomIndex].room_picture_url='';
 }
 const mapLocation = (location) => {
@@ -179,7 +170,7 @@ const updateLocations = (locations) => {
       <el-upload list-type="picture-card" accept="image/*" :before-upload="handlePictureUpdate" :limit="5" :on-exceed="handleExceed"
       :action="'http://localhost:8080/api/PictureUpload'"
       :on-success="(response, file)=>HotelHandlePictureUploadSuccess(response,file)"
-      :on-remove="(file)=>handleHotelPictureRemove(file.name)"></el-upload>
+      :on-remove="(file)=>handleHotelPictureRemove(file)"></el-upload>
     </el-form-item>
     <div class="address-row">
     <el-form-item label="省份" prop="province">
@@ -218,7 +209,7 @@ const updateLocations = (locations) => {
       <el-upload list-type="picture-card" multiple accept="image/*" :before-upload="handlePictureUpdate" :limit="1" :on-exceed="handleExceed"
                  :action="'http://localhost:8080/api/PictureUpload'"
                  :on-success="(response, file) => RoomHandlePictureUploadSuccess(response, file,index)"
-                 :on-remove="(file)=>handleRoomPictureRemove(file.name,index)"></el-upload>
+                 :on-remove="(file)=>handleRoomPictureRemove(file,index)"></el-upload>
     </el-form-item>
       <div class="bed">
      <el-form-item label="床类型" :prop="`rooms[${index}].bed_type`">

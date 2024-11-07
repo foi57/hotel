@@ -5,19 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36e48345-8858-47b1-810f-9b1995180da5" name="更改" comment="2">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a1032884-ec18-4364-8498-4543b28aeda7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a1032884-ec18-4364-8498-4543b28aeda7.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#ib_16384_0.dblwr" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/#ib_16384_0.dblwr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_redo/#ib_redo11_tmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_1.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_1.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_2.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_2.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_3.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_3.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_6.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_6.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_7.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_7.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_8.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_8.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/auto.cnf" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/auto.cnf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/hotel/hotel.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/hotel/hotel.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/ibdata1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/ibtmp1" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/ibtmp1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/mysql.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/mysql.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/undo_001" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/undo_001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/undo_002" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/undo_002" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Controller/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Controller/HotelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Service/HotelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/Service/HotelService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/mapper/HotelMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/mapper/HotelMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/mapper/UserMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/api/hotel.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/api/hotel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/components/LeftSidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/LeftSidebar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/components/heard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/heard.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/components/viewHotel.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/viewHotel.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/views/addHotel.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/addHotel.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/hotelManagement.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/hotelManagement.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/hotelInnerPages.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/hotelInnerPages.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/updateHotel.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/updateHotel.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +109,7 @@
     &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;npm.npm dev.executor&quot;: &quot;Run&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
@@ -305,6 +321,8 @@
       <workItem from="1730642909232" duration="4255000" />
       <workItem from="1730698863311" duration="15588000" />
       <workItem from="1730774347775" duration="5839000" />
+      <workItem from="1730898693030" duration="3266000" />
+      <workItem from="1730941699527" duration="3309000" />
     </task>
     <task id="LOCAL-00001" summary="addhotel1">
       <option name="closed" value="true" />

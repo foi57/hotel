@@ -2,9 +2,7 @@ package org.example.springboot.Controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.jsonwebtoken.*;
-import org.apache.ibatis.type.MappedTypes;
 import org.example.springboot.Service.HotelService;
-import org.example.springboot.entity.BookInfo;
 import org.example.springboot.entity.HotelForm;
 import org.example.springboot.entity.HotelSearchRequest;
 import org.example.springboot.entity.Room;
@@ -12,7 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.expression.ParseException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +20,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -80,20 +76,17 @@ public class HotelController {
         return null;
     }
     @PostMapping("/deletePicture")
-    public ResponseEntity<String> deletePicture(@RequestParam("fileId") String fileName) {
+    public ResponseEntity<String> deletePicture(@RequestParam("fileId") String id) throws IOException {
 
-        String uniqueFileName = hotelService.SelectPicture(fileName);
+        String uniqueFileName = hotelService.SelectPicture(id);
+        hotelService.deletePicture(id);
         logger.info("UUID{}",uniqueFileName);
         if (uniqueFileName == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("File not found");
         }
         Path path = Paths.get("springboot/src/main/resources/static/files", uniqueFileName);
-        try {
-            Files.deleteIfExists(path);
-            return ResponseEntity.ok("File deleted successfully");
-        } catch (IOException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
-        }
+                    Files.deleteIfExists(path);
+        return ResponseEntity.ok("File deleted successfully");
     }
     @GetMapping("/selectSpecialsHotels")
     public ResponseEntity<List<HotelForm>> selectSpecialsHotels() {
@@ -167,7 +160,7 @@ public class HotelController {
         hotelService.deleteHotelById(id);
     }
     @PostMapping("/updateHotel")
-    public void updateHotel(@RequestBody HotelForm hotelForm){
-        logger.info("updateHotel{}",hotelForm);
+    public void updateHotel(@RequestBody HotelForm hotelForm) throws JsonProcessingException {
+        hotelService.updateHotel(hotelForm);
     }
 }

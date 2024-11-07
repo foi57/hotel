@@ -13,6 +13,7 @@ const cities = ref([]); // 城市列表
 const districts = ref([]); // 区县列表
 const formRef = ref(null);
 const form = ref({
+  id:0,
   name:'',
   introduction: '',
   picture_url: [],
@@ -29,6 +30,7 @@ onMounted(() => {
   console.log('getHotel',hotel);
   if (hotel) {
     form.value = {
+      id:hotel.id,
       name: hotel.name,
       introduction: hotel.introduction,
       picture_url: hotel.picture_url || [],
@@ -123,20 +125,18 @@ const onSubmit = () => {
     }
   });
 }
-let upPictureIndex =ref(0)
 const HotelHandlePictureUploadSuccess = (response,file) => {
   console.log('upPicture',file)
   form.value.picture_url.push(response.fileUrl);
   console.log('PictureUrl',form.value.picture_url)
-  deleteHotelPictureIds.value.push({index:upPictureIndex,fileName:file.name});
-  upPictureIndex=upPictureIndex+1;
   console.log('PictureId',deleteHotelPictureIds.value)
 }
 
-const handleHotelPictureRemove = (fileName) => {
-  hotel.deletePicture(fileName);
-  const index = deleteHotelPictureIds.value.findIndex(item => item.fileName === fileName);
-  form.value.picture_url.splice(index,1);
+const handleHotelPictureRemove = (file) => {
+  const urlIndex = form.value.picture_url.findIndex(url => file.url === url);
+  if (urlIndex !== -1) {
+    form.value.picture_url.splice(urlIndex, 1);
+  }
 }
 
 const mapLocation = (location) => {
@@ -161,7 +161,7 @@ const updateLocations = (locations) => {
         <el-upload list-type="picture-card" accept="image/*" :before-upload="handlePictureUpdate" :limit="5" :on-exceed="handleExceed"
                    :action="'http://localhost:8080/api/PictureUpload'"
                    :on-success="(response, file)=>HotelHandlePictureUploadSuccess(response,file)"
-                   :on-remove="(file)=>handleHotelPictureRemove(file.name)"
+                   :on-remove="(file)=>handleHotelPictureRemove(file)"
                    :file-list="fileList"></el-upload>
       </el-form-item>
       <div class="address-row">

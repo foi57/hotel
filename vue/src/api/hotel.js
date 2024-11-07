@@ -9,13 +9,13 @@ export default {
             data: form
         })
     },
-    deletePicture: (fileName) => {
-        console.log('fileId',fileName)
+    deletePicture: (fileId) => {
+        console.log('fileId',fileId)
         return request({
             url: '/deletePicture',
             method: 'post',
             params: {
-                fileName
+                fileId
             }
         })
     },
