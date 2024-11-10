@@ -12,7 +12,8 @@ const store = createStore({
             checkOutDate: '',
         },
         selectHotel: null,
-        removeHotelFromList: null
+        removeHotelFromList: null,
+        room: null
     },
     mutations: {
         setHotel(state, hotel) {
@@ -35,6 +36,9 @@ const store = createStore({
             console.log('Removing hotel:', hotelId);
             state.hotel = state.hotel.filter(hotel => hotel.id !== hotelId);
             console.log(state.hotel);
+        },
+        setRoom(state, room) {
+            state.room = room
         }
     },
     actions: {
@@ -60,6 +64,9 @@ const store = createStore({
         },
         updateRemoveHotelFromList({ commit }, hotelId) {
             commit('REMOVE_HOTEL', hotelId)
+        },
+        updateRoom({ commit }, room) {
+            commit('setRoom', room)
         }
     },
     getters: {
@@ -68,7 +75,8 @@ const store = createStore({
         getPages: (state) => state.pages,
         getSearchBox: (state) => state.searchBox
         , getSelectHotel: (state) => state.selectHotel,
-        getRemoveHotelFromList: (state) => state.removeHotelFromList
+        getRemoveHotelFromList: (state) => state.removeHotelFromList,
+        getRoom: (state) => state.room
     },
     plugins: [createPersistedState({})],
 });

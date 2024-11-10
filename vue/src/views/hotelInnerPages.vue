@@ -34,7 +34,7 @@ const book = (room) => {
   const bookInfo = {
     room_id: room.id,
     room_name: room.room_name,
-    room_count: bookCount.value,
+    room_count: room.bookCount,
     CountDay: CountDay.value,
     TimeStart: TimeStart.value,
     TimeEnd: TimeEnd.value,
@@ -55,7 +55,10 @@ const OnTimeChange = () => {
   computeCountDay();
   if (TimeStart.value && TimeEnd.value) {
     hotelAPI.selectRoomByHotelIdTime(hotel.value.id, TimeStart.value, TimeEnd.value).then((res) => {
-      hotel.value.rooms = res.data;
+      hotel.value.rooms = res.data.map(room => ({
+        ...room,
+        bookCount: 1  // 为每个房间添加初始预订数量
+      }));
       selectRoom=true;
       console.log('OnTimeChange' ,hotel.value);
     })
@@ -145,9 +148,12 @@ const OnTimeChange = () => {
         <div class="book-info">
           <P v-if="selectRoom">剩余{{room.available_rooms}}间</P>
           <el-form-item label="请输入房间数量">
-            <el-input-number v-model="bookCount"></el-input-number>
+            <el-input-number v-model="room.bookCount"
+                             :max="room.available_rooms"
+                             ></el-input-number>
           </el-form-item>
-          <h2>{{room.price*CountDay*bookCount}}￥,{{CountDay}}晚</h2>
+          <p v-if="bookCount >= room.available_rooms">已达到最大可预订数量</p>
+          <h2>{{room.price*CountDay*room.bookCount}}￥,{{CountDay}}晚</h2>
           <el-button type="primary" @click="book(room)">预订</el-button>
         </div>
       </div>

@@ -36,6 +36,10 @@ const handleSearch = (page) => {
         store.dispatch("updateHotel",hotels.value)
         store.dispatch("updatePages",page.value)
       })
+      .catch(error => {
+        console.log(error)
+        store.dispatch("updateHotel",[])
+      })
   store.dispatch("updateSearchBox",form.value)
   router.push("/selectHotel")
 }

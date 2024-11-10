@@ -48,6 +48,10 @@ const deleteHotel = async (hotel) => {
   }
 
 }
+const viewRoom = (hotel) => {
+  store.dispatch("updateHotel",hotel)
+  router.push("/viewRoom");
+}
 </script>
 
 <template>
@@ -63,7 +67,7 @@ const deleteHotel = async (hotel) => {
       <!-- 仅当悬浮的酒店与当前酒店匹配时显示按钮 -->
       <div class="hotelOptions" v-if="hoveredHotelId === hotel.id && overOption==='hotel'">
         <el-button @click.stop="updateHotel(hotel)">修改酒店信息</el-button>
-        <el-button >
+        <el-button @click.stop="viewRoom(hotel)">
           查看房间
         </el-button>
         <el-button @click.stop="deleteHotel(hotel)">删除酒店</el-button>

@@ -37,6 +37,7 @@ const hotelManagement = () => {
 
 <template>
   <div class="heard" @mouseleave="showDropdown=false">
+    <router-link to="/">首页</router-link>
     <router-link to="/addHotel">上线我的酒店</router-link>
     <label class="user" @mouseover="showDropdown=true" @click="handleLogin">{{userName}}</label>
     <div class="dropdown" v-if="showDropdown&&userName!=='登录'" >
