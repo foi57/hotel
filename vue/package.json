@@ -10,12 +10,18 @@
   },
   "dependencies": {
     "@amap/amap-jsapi-loader": "^1.0.1",
+    "@chenfengyuan/vue-carousel": "^2.0.0",
     "axios": "^1.7.7",
     "element-plus": "^2.8.6",
     "jwt-decode": "^4.0.0",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^11.1.14",
     "vue": "^3.5.10",
-    "vue-awesome-swiper": "^5.0.1",
-    "vue-router": "^4.4.5"
+    "vue-carousel": "^0.18.0",
+    "vue-router": "^4.4.5",
+    "vue-slick-carousel": "^1.0.6",
+    "vuex": "^4.1.0",
+    "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.4",

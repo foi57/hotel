@@ -1,12 +1,14 @@
 <script setup>
 import {useStore} from "vuex";
-import {computed, ref, onMounted} from "vue";
+import {computed, ref, onMounted,nextTick} from "vue";
 import {Swiper, SwiperSlide} from "swiper/vue";
 import 'swiper/swiper-bundle.css'
 import Heard from "../components/heard.vue";
 import MapContainer from "../components/MapContainer.vue";
 import router from "../router/index.js";
 import hotelAPI from "../api/hotel.js";
+import { Navigation } from 'swiper/modules';
+const modules = ref([Navigation]);
 const store = useStore()
 const hotel = computed(() => {
   return store.getters.getHotel;
@@ -19,6 +21,7 @@ const TimeEnd = ref('');
 const bookCount = ref(1);
 const MapContainerRef = ref(null);
 const CountDay = ref(1);
+const swiperRef = ref(null);
 let selectRoom=ref(false)
 console.log(hotel.value);
 onMounted(() => {
@@ -64,6 +67,7 @@ const OnTimeChange = () => {
     })
   }
 }
+const goToSlide = (index) => { swiperRef.value};
 </script>
 
 <template>
@@ -72,10 +76,10 @@ const OnTimeChange = () => {
     <div class="hotel-info">
       <div class="left">
         <swiper
+            ref="swiperRef"
             :loop="true"
-            :pagination="{ clickable: true }"
+            :modules="modules"
             :navigation="true"
-
         >
           <swiper-slide v-for="(picture, index) in hotel.picture_url" :key="index">
             <img :src="picture" alt="图片加载失败" />
@@ -88,6 +92,7 @@ const OnTimeChange = () => {
               :src="picture"
               class="thumbnail"
               alt="缩略图加载失败"
+              @click="goToSlide(index)"
           />
         </div>
       </div>

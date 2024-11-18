@@ -5,28 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36e48345-8858-47b1-810f-9b1995180da5" name="更改" comment="2">
-      <change afterPath="$PROJECT_DIR$/vue/src/views/updateRoom.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#ib_16384_0.dblwr" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/#ib_16384_0.dblwr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_1.ibt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_2.ibt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_3.ibt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_6.ibt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_7.ibt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/#innodb_temp/temp_8.ibt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/hotel/hotel.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/hotel/hotel.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/ibdata1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/ibtmp1" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/mysql.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/mysql.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/undo_001" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/undo_001" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/docker/mysql-data/undo_002" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/docker/mysql-data/undo_002" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/components/SearchBox.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/SearchBox.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/components/heard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/heard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/components/viewHotel.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/viewHotel.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/hotelInnerPages.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/hotelInnerPages.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/viewRoom.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/viewRoom.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +124,7 @@
       <recent name="org.example.springboot.Service" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.npm dev">
+  <component name="RunManager" selected="复合.hotel">
     <configuration name="hotel" type="CompoundRunConfigurationType">
       <toRun name="npm dev" type="js.build_tools.npm" />
       <toRun name="SpringbootApplication" type="SpringBootApplicationConfigurationType" />
@@ -317,6 +302,8 @@
       <workItem from="1730898693030" duration="3266000" />
       <workItem from="1730941699527" duration="7078000" />
       <workItem from="1731129123839" duration="28000" />
+      <workItem from="1731295520733" duration="3503000" />
+      <workItem from="1731311744233" duration="6609000" />
     </task>
     <task id="LOCAL-00001" summary="addhotel1">
       <option name="closed" value="true" />

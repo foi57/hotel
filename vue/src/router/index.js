@@ -69,6 +69,11 @@ const routes = [
         name: "updateRoom",
         component: () => import("../views/updateRoom.vue"),
         meta: {requiresAuth: true}
+    },
+    {
+      path: "/sandbox",
+      name: "sandbox",
+      component: () => import("../views/sandbox.vue")
     }
 ];
 
