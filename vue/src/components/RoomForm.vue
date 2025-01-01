@@ -1,11 +1,11 @@
 <!-- components/RoomForm.vue -->
 <template>
   <div class="room-form">
-    <h5>房间 {{ roomIndex + 1 }}</h5>
-    <el-form-item label="房间名称" :prop="`rooms[${roomIndex}].room_name`">
+    <el-form :rules="rule">
+    <el-form-item label="房间名称" prop="room_name">
       <el-input v-model="room.room_name"></el-input>
     </el-form-item>
-    <el-form-item label="房间数量" :prop="`rooms[${roomIndex}].room_count`">
+    <el-form-item label="房间数量" prop="room_count">
       <el-input-number v-model="room.room_count"></el-input-number>
     </el-form-item>
     <el-form-item label="房间图片">
@@ -13,9 +13,11 @@
                  :before-upload="handlePictureUpdate" :limit="1" :on-exceed="handleExceed"
                  :action="'http://localhost:8080/api/PictureUpload'"
                  :on-success="(response, file) => onRoomPictureUploadSuccess(response, file)"
-                 :on-remove="() => onRoomPictureRemove()"></el-upload>
+                 :on-remove="(file) => onRoomPictureRemove(file)"
+                  :file-list="fileList">
+      </el-upload>
     </el-form-item>
-    <el-form-item label="床类型" :prop="`rooms[${roomIndex}].bed_type`">
+    <el-form-item label="床类型" prop="bed_type">
       <el-select v-model="room.bed_type">
         <el-option v-for="bed in beds" :key="bed" :label="bed" :value="bed"></el-option>
       </el-select>
@@ -29,23 +31,34 @@
         {{ facility }}
       </el-checkbox>
     </div>
-    <el-form-item label="价格" :prop="`rooms[${roomIndex}].price`">
+    <el-form-item label="价格" prop="price">
       <el-input-number v-model="room.price"></el-input-number>
     </el-form-item>
+    </el-form>
   </div>
 </template>
 
 <script setup>
-import { ref, toRefs } from 'vue';
 import { ElMessage } from 'element-plus';
+import {useStore} from "vuex";
+import hotel from "../api/hotel.js";
+import {ref} from 'vue';
+const store = useStore()
+const room = store.getters.getRoom
+const fileList = ref(
+    room.room_picture_url
+        ? [
+          {
+            name: '房间图片', // 图片名称
+            url: room.room_picture_url, // 图片 URL
+            uid: 0, // 唯一标识
+          },
+        ]
+        : []
+);
+console.log(room)
+const beds =['单人床','双人床'];
 
-const props = defineProps({
-  room: Object,
-  roomIndex: Number,
-  beds: Array
-});
-
-const emit = defineEmits(['update:room_picture_url', 'removeRoomPicture']);
 
 const facilityList = [
   "无线网", "有线网", "毛巾", "拖鞋", "免费洗浴用品", "空调", "电视", "厨房"
@@ -64,12 +77,22 @@ const handleExceed = () => {
 };
 
 const onRoomPictureUploadSuccess = (response, file) => {
-  emit('update:room_picture_url', response.fileUrl);
+  room.room_picture_url.push(response.fileUrl)
 };
 
-const onRoomPictureRemove = () => {
-  emit('removeRoomPicture');
+const onRoomPictureRemove = async (file) => {
+  const urlIndex = room.room_picture_url.findIndex((url) => url === file.url)
+  hotel.deletePicture(file.id)
+  room.room_picture_url.splice(urlIndex, 1)
 };
+const rule = {
+  room_name: [{ required: true, message: '请填写房间名称', trigger: 'blur' }],
+  room_count: [{ required: true, type: 'number', message: '请填写房间数量', trigger: 'change' }],
+  price: [{ required: true, type: 'number', min: 1, message: '请填写房间价格', trigger: 'change' }],
+  bed_type: [{ required: true, message: '请填写床型', trigger: 'change' }],
+};
+
+
 </script>
 
 <style scoped>
@@ -78,4 +101,5 @@ const onRoomPictureRemove = () => {
   flex-wrap: wrap;
   gap: 10px;
 }
+
 </style>

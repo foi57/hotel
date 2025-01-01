@@ -4,7 +4,7 @@
   <div class="Context">
     <SearchBox></SearchBox>
     <h1>特惠酒店</h1>
-   <view-hotel></view-hotel>
+   <view-hotel v-if="hotelList.length > 0"></view-hotel>
   </div>
 </template>
 

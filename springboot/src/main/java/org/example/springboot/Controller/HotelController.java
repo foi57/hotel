@@ -25,6 +25,8 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
+import static org.example.springboot.Util.Util.getTimestamp;
+
 @RestController
 @RequestMapping("/api")
 public class HotelController {
@@ -84,6 +86,10 @@ public class HotelController {
         if (uniqueFileName == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("File not found");
         }
+        // 校验文件名
+        if (!uniqueFileName.matches("[a-zA-Z0-9_-]+\\.[a-zA-Z0-9]+")) {
+            throw new IllegalArgumentException("Invalid file name");
+        }
         Path path = Paths.get("springboot/src/main/resources/static/files", uniqueFileName);
                     Files.deleteIfExists(path);
         return ResponseEntity.ok("File deleted successfully");
@@ -132,24 +138,8 @@ public class HotelController {
         }
         return id;
     }
-    @PostMapping("/selectRoomByHotelIdTime")
-    public List<Room> selectRoomByHotelId(int hotelId,String timeStart,String timeEnd) {
-    logger.info("hotelId{},timeStart{},timeEnd{}",hotelId,timeStart,timeEnd);
-        List<Timestamp> timestamps= getTimestamp(timeStart,timeEnd);
-        Timestamp timestampStart=timestamps.get(0);
-        Timestamp timestampEnd=timestamps.get(1);
-        List<Room> room= hotelService.getHotelPicturesRoom(hotelId,timestampStart,timestampEnd);
-        logger.info("Room{}",room);
-        return room;
-    }
-    public List<Timestamp> getTimestamp(String timeStart,String timeEnd) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-        LocalDateTime dateTimeStart = LocalDateTime.parse(timeStart, formatter);
-        LocalDateTime dateTimeEnd = LocalDateTime.parse(timeEnd, formatter);
-        Timestamp timestampStart = Timestamp.valueOf(dateTimeStart.atZone(ZoneId.of("UTC")).withZoneSameInstant(ZoneId.systemDefault()).toLocalDateTime());
-        Timestamp timestampEnd = Timestamp.valueOf(dateTimeEnd.atZone(ZoneId.of("UTC")).withZoneSameInstant(ZoneId.systemDefault()).toLocalDateTime());
-        return Arrays.asList(timestampStart,timestampEnd);
-    }
+
+
     @PostMapping("/selectHotelByUserId")
     public List<HotelForm> selectHotelByUserId(@RequestParam("page") int page, @RequestParam("pageSize") int pageSize,@RequestHeader("Authorization") String authorizationHeader) {
         int userId = getUserId(authorizationHeader);
