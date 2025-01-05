@@ -89,6 +89,7 @@ public class HotelService {
         List<HotelForm> hotelForms= null;
         try {
             hotelForms = hotelMapper.selectSpecialsHotels();
+            logger.info("picturesTest{},{}", hotelForms, hotelForms.getFirst().getPicture_urls());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

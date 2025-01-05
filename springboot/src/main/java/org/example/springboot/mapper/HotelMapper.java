@@ -1,5 +1,6 @@
 package org.example.springboot.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.*;
 import org.example.springboot.Config.BooleanListTypeHandler;
 import org.example.springboot.Config.StringListTypeHandler;
@@ -9,7 +10,7 @@ import org.example.springboot.entity.Room;
 import java.sql.Timestamp;
 import java.util.List;
 @Mapper
-public interface HotelMapper {
+public interface HotelMapper extends BaseMapper<HotelForm> {
 
     @Insert("insert into hotel(name, userId,introduction,province,city,district,address, locations) values(#{form.name},#{user_id},#{form.introduction},#{form.province},#{form.city},#{form.district},#{form.address},#{locations})")
     @Options(useGeneratedKeys = true, keyProperty = "form.id",keyColumn = "id")
@@ -23,10 +24,13 @@ public interface HotelMapper {
    void insertRoom(@Param("hotelId") int hotelId, @Param("room") Room room,@Param("facilities") String facilitiesString);
    @Insert("INSERT INTO room_pictures(hotel_id,room_id, room_picture_url) VALUES (#{hotelId},#{roomId}, #{pictureUrl})")
     void insertRoomPicture(@Param("hotelId") int hotelId,@Param("roomId") int roomId,@Param("pictureUrl") String pictureUrl);
+
    @Results({@Result(property = "locations",column = "locations" ,typeHandler = StringListTypeHandler.class)})
    @Select("SELECT hotel.*,GROUP_CONCAT(hotel_pictures.picture_url) as picture_urls  from hotel join hotel_pictures on  hotel.id=hotel_pictures.hotel_id group by hotel.id LIMIT 4")
     List<HotelForm> selectSpecialsHotels();
-   @Results({@Result(property = "facilities",column = "facilities" ,typeHandler = BooleanListTypeHandler.class)})
+
+
+    @Results({@Result(property = "facilities", column = "facilities", typeHandler = BooleanListTypeHandler.class)})
    @Select("SELECT room.*,room_pictures.* from room,room_pictures where room.id=room_pictures.room_id and room.hotel_id=#{hotelId}")
     List<Room> selectRoomByHotelId(int hotelId);
 

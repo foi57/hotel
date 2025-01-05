@@ -39,10 +39,11 @@
 </template>
 
 <script setup>
-import { ElMessage } from 'element-plus';
+import {ElMessage} from 'element-plus';
 import {useStore} from "vuex";
 import hotel from "../api/hotel.js";
-import {ref} from 'vue';
+import {defineExpose, ref} from 'vue';
+
 const store = useStore()
 const room = store.getters.getRoom
 const fileList = ref(
@@ -92,7 +93,9 @@ const rule = {
   bed_type: [{ required: true, message: '请填写床型', trigger: 'change' }],
 };
 
-
+defineExpose({
+  room
+});
 </script>
 
 <style scoped>

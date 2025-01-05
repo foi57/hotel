@@ -5,7 +5,6 @@ import io.jsonwebtoken.*;
 import org.example.springboot.Service.HotelService;
 import org.example.springboot.entity.HotelForm;
 import org.example.springboot.entity.HotelSearchRequest;
-import org.example.springboot.entity.Room;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +19,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 import static org.example.springboot.Util.Util.getTimestamp;
 
@@ -135,15 +134,32 @@ public class HotelController {
             }
         } catch (ExpiredJwtException e) {
             logger.info("Token expired：{}",e.getMessage());
+            throw e;
+        } catch (UnsupportedJwtException e) {
+            logger.info("Token is unsupported：{}", e.getMessage());
+            throw e;
+        } catch (MalformedJwtException e) {
+            logger.info("Token is malformed：{}", e.getMessage());
+            throw e;
+        } catch (SignatureException e) {
+            logger.info("Signature validation failed：{}", e.getMessage());
+            throw e;
         }
         return id;
     }
 
 
     @PostMapping("/selectHotelByUserId")
-    public List<HotelForm> selectHotelByUserId(@RequestParam("page") int page, @RequestParam("pageSize") int pageSize,@RequestHeader("Authorization") String authorizationHeader) {
-        int userId = getUserId(authorizationHeader);
-        return hotelService.selectHotelByUserId(userId,page,pageSize);
+    public ResponseEntity<List<HotelForm>> selectHotelByUserId(@RequestParam("page") int page, @RequestParam("pageSize") int pageSize, @RequestHeader("Authorization") String authorizationHeader) {
+        int userId;
+        try {
+            userId = getUserId(authorizationHeader);
+        } catch (Exception e) {
+            return ResponseEntity.status(401).body(null);
+        }
+
+        List<HotelForm> hotelForm = hotelService.selectHotelByUserId(userId, page, pageSize);
+        return ResponseEntity.ok(hotelForm);
     }
     @PostMapping("deleteHotelById")
     public void deleteHotelById(@RequestParam("id") int id) {

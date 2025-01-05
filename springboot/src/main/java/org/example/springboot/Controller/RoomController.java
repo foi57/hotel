@@ -1,24 +1,33 @@
 package org.example.springboot.Controller;
 
 import org.example.springboot.Service.HotelService;
+import org.example.springboot.Service.RoomService;
+import org.example.springboot.Util.Util;
 import org.example.springboot.entity.Room;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.example.springboot.Util.Util;
+
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 import java.util.List;
 @Component
 @RequestMapping("/api")
 public class RoomController {
 
     HotelService hotelService;
+    RoomService roomService;
+
+    @Autowired
+    public RoomController(RoomService roomService, HotelService hotelService) {
+        this.roomService = roomService;
+        this.hotelService = hotelService;
+    }
+
     Logger logger = LoggerFactory.getLogger(RoomController.class);
     @PostMapping("/selectRoomByHotelIdTime")
     public List<Room> selectRoomByHotelId(int hotelId, String timeStart, String timeEnd) {
@@ -31,4 +40,8 @@ public class RoomController {
         return room;
     }
 
+    @PostMapping("/updateRoom")
+    public ResponseEntity<Integer> update(@RequestBody Room room) {
+        return ResponseEntity.ok(roomService.updateRoom(room));
+    }
 }

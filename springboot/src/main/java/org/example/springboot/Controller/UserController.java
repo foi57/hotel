@@ -1,7 +1,7 @@
 package org.example.springboot.Controller;
 
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
 import org.example.springboot.Service.EmailService;
 import org.example.springboot.Service.UserService;
 import org.example.springboot.entity.User;
@@ -9,20 +9,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import io.jsonwebtoken.security.Keys;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.security.Key;
 import java.security.SecureRandom;
-import java.util.*;
+import java.util.Collections;
+import java.util.Date;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
@@ -58,6 +52,7 @@ Logger logger = LoggerFactory.getLogger(UserController.class);
             return ResponseEntity.status(200).body("注册成功");
         }
         return ResponseEntity.status(403).body("该用户已存在");
+
     }
     @PostMapping("/emailVerify")
     public int emailVerify(@RequestParam("email") String email) {
