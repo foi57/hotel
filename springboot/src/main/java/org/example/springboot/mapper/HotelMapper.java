@@ -69,7 +69,7 @@ public interface HotelMapper extends BaseMapper<HotelForm> {
             "    GROUP BY room_id " +
             ") AS booked ON booked.room_id = room.id " +
             "WHERE hotel.city = #{city} " +
-            "HAVING SUM(room.room_count) - COALESCE(SUM(booked.room_count), 0) > 0")
+            "HAVING COALESCE(SUM(room.room_count), 0) - COALESCE(SUM(booked.room_count), 0) > 0")
     int countHotelsByCityCityTime(@Param("city") String city,
                                   @Param("timeStart") Timestamp timeStart,
                                   @Param("timeEnd") Timestamp timeEnd);

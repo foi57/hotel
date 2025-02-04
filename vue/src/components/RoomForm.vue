@@ -1,7 +1,7 @@
 <!-- components/RoomForm.vue -->
 <template>
   <div class="room-form">
-    <el-form :rules="rule">
+    <el-form ref="formRef" :model="room" :rules="rule">
     <el-form-item label="房间名称" prop="room_name">
       <el-input v-model="room.room_name"></el-input>
     </el-form-item>
@@ -42,10 +42,10 @@
 import {ElMessage} from 'element-plus';
 import {useStore} from "vuex";
 import hotel from "../api/hotel.js";
-import {defineExpose, ref} from 'vue';
+import {defineExpose, reactive, ref} from 'vue';
 
 const store = useStore()
-const room = store.getters.getRoom
+const room = reactive({...store.getters.getRoom}); // 使用 reactive 包裹
 const fileList = ref(
     room.room_picture_url
         ? [
@@ -87,7 +87,7 @@ const onRoomPictureRemove = async (file) => {
   room.room_picture_url.splice(urlIndex, 1)
 };
 const rule = {
-  room_name: [{ required: true, message: '请填写房间名称', trigger: 'blur' }],
+  room_name: [{required: true, message: '请填写房间名称', trigger: ['blur']}],
   room_count: [{ required: true, type: 'number', message: '请填写房间数量', trigger: 'change' }],
   price: [{ required: true, type: 'number', min: 1, message: '请填写房间价格', trigger: 'change' }],
   bed_type: [{ required: true, message: '请填写床型', trigger: 'change' }],
