@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36e48345-8858-47b1-810f-9b1995180da5" name="更改" comment="来完成房价修改，转mybatis-plus出现数据对不上问题应该是字段下划线">
+    <list default="true" id="36e48345-8858-47b1-810f-9b1995180da5" name="更改" comment="待完成评分系统">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/mapper/HotelMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/org/example/springboot/mapper/HotelMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/components/RoomForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/RoomForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/updateRoom.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/updateRoom.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,61 +65,61 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Docker.docker/Dockerfile.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker: Compose 部署.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.springboot.mysql: Compose 部署.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.springboot/Dockerfile.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.springboot: Compose 部署.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP 请求.generated-requests中的所有.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.EmailServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.CommonApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.ParentApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.SpringbootApplication.executor&quot;: &quot;Run&quot;,
-    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;23.5.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.10.3&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;23&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/code/vue/hotel/springboot/src/main/resources/static/files&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;C:/Users/Administrator/AppData/Roaming/JetBrains/IntelliJIdea2024.3/node/versions/23.5.0/node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.npm dev.executor&quot;: &quot;Run&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;E:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.3.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Docker.docker/Dockerfile.executor": "Run",
+    "Docker.docker: Compose 部署.executor": "Run",
+    "Docker.springboot.mysql: Compose 部署.executor": "Run",
+    "Docker.springboot/Dockerfile.executor": "Run",
+    "Docker.springboot: Compose 部署.executor": "Run",
+    "HTTP 请求.generated-requests中的所有.executor": "Run",
+    "JUnit.EmailServiceTest.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.CommonApplication.executor": "Run",
+    "Spring Boot.ParentApplication.executor": "Run",
+    "Spring Boot.SpringbootApplication.executor": "Run",
+    "com.codeium.enabled": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "1f6c5b80",
+    "ignore.virus.scanning.warn.message": "true",
+    "javascript.nodejs.core.library.configured.version": "23.5.0",
+    "javascript.nodejs.core.library.typings.version": "22.10.3",
+    "jdk.selected.JAVA_MODULE": "23",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/code/vue/hotel/springboot/src/main/resources/static/files",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "C:/Users/Administrator/AppData/Roaming/JetBrains/IntelliJIdea2024.3/node/versions/23.5.0/node",
+    "nodejs_package_manager_path": "npm",
+    "npm.npm dev.executor": "Run",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "E:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.3.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ],
-    &quot;vue.recent.templates&quot;: [
-      &quot;Vue Options API Component&quot;,
-      &quot;Vue Composition API Component&quot;
+    "vue.recent.templates": [
+      "Vue Options API Component",
+      "Vue Composition API Component"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\code\vue\hotel\springboot\src\main\resources\static\files" />
@@ -498,7 +494,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736075464723</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="待完成评分系统">
+      <option name="closed" value="true" />
+      <created>1739519908369</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1739519908369</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -527,7 +531,8 @@
     <MESSAGE value="来完成房价修改，正在迁移roomController" />
     <MESSAGE value="来完成房价修改，正在迁移roomController" />
     <MESSAGE value="来完成房价修改，转mybatis-plus出现数据对不上问题应该是字段下划线" />
-    <option name="LAST_COMMIT_MESSAGE" value="来完成房价修改，转mybatis-plus出现数据对不上问题应该是字段下划线" />
+    <MESSAGE value="待完成评分系统" />
+    <option name="LAST_COMMIT_MESSAGE" value="待完成评分系统" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
