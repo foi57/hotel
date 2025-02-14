@@ -3,6 +3,7 @@ import RoomForm from "../components/RoomForm.vue";
 import room from "../api/room.js";
 import router from "../router/index.js";
 import {ref} from "vue";
+import {ElMessage} from "element-plus";
 
 const roomRef = ref(null);
 const updateRoom = () => {
@@ -12,7 +13,7 @@ const updateRoom = () => {
   room.update(form)
       .then(() => router.push('hotelManagement'))
       .catch((error) => {
-        Element.error(error);
+        ElMessage.error(error.message);
       });
 }
 </script>

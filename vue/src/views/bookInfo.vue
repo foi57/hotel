@@ -4,19 +4,16 @@ import Heard from "../components/heard.vue";
 import book from "../api/book.js";
 import { ref, onMounted } from "vue";
 import {ElMessage} from "element-plus";
+import router from "../router/index.js"
 
 const orders = ref([]); // 用于存储订单信息
 const getCurrentTime = () => {
   return new Date();
 }
 onMounted(async () => {
-  try {
     const response = await book.showBook();
     orders.value = response.data; // 假设 response 是订单数组
     console.log(orders.value);
-  } catch (error) {
-    console.error("Error fetching orders:", error);
-  }
 });
 const canChargeBack = (timeStart) => {
   const currentTime = getCurrentTime();
@@ -34,6 +31,9 @@ const chargeBacks = (order) => {
     ElMessage.error("入住前48小时不能退单");
   }
   console.log("退单");
+}
+const appraise = (userId, roomId) => {
+  router.push({name: "appraise", params: {userId, roomId}});
 }
 </script>
 
@@ -55,6 +55,7 @@ const chargeBacks = (order) => {
         <p>订单状态: {{ order.state }}</p>
         <hr />
         <p v-if="canChargeBack(order.timeStart)"><el-button @click="chargeBacks(order)">退单</el-button></p>
+        <el-button @click="appraise(order.user_id,order.room_id)">评价</el-button>
       </div>
     </div>
   </div>

@@ -9,10 +9,10 @@
         <relativePath>../parent/pom.xml</relativePath>
     </parent>
 
-    <artifactId>springboot</artifactId>
+    <artifactId>API</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot</name>
-    <description>springboot</description>
+    <name>API</name>
+    <description>API</description>
     <url/>
     <licenses>
         <license/>
@@ -34,6 +34,11 @@
             <groupId>org.example</groupId>
             <artifactId>common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.31</version>
         </dependency>
     </dependencies>
 

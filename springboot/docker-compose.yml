@@ -18,3 +18,28 @@ services:
       - MYSQL_ROOT_PASSWORD=password
     volumes:
       - "./docker/mysql-data:/var/lib/mysql"
+  zookeeper:
+    image: bitnami/zookeeper
+    container_name: hotel-zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+    volumes:
+      - "./docker/zookeeper-data:/bitnami"
+  kafka:
+    image: bitnami/kafka
+    container_name: hotel-kafka
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://127.0.0.1:9092
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=true
+      - ALLOW_PLAINTEXT_LISTENER=yes
+    volumes:
+      - "./docker/kafka-data:/bitnami"

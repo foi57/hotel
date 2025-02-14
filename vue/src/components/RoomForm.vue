@@ -82,7 +82,7 @@ const onRoomPictureUploadSuccess = (response, file) => {
 };
 
 const onRoomPictureRemove = async (file) => {
-  const urlIndex = room.room_picture_url.findIndex((url) => url === file.url)
+  const urlIndex = room.room_picture_url.findIndex((url) => url === file.response.fileUrl)
   hotel.deletePicture(file.id)
   room.room_picture_url.splice(urlIndex, 1)
 };

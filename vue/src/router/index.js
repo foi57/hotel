@@ -74,6 +74,12 @@ const routes = [
       path: "/sandbox",
       name: "sandbox",
       component: () => import("../views/sandbox.vue")
+    },
+    {
+        path: "/appraise/:userId/:roomId",
+        name: "appraise",
+        component: () => import("../views/appraise.vue"),
+        meta: {requiresAuth: true}
     }
 ];
 

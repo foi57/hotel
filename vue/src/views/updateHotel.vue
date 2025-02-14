@@ -129,16 +129,15 @@ const HotelHandlePictureUploadSuccess = (response,file) => {
   console.log('upPicture',file)
   form.value.picture_url.push(response.fileUrl);
   console.log('PictureUrl',form.value.picture_url)
-  console.log('PictureId',deleteHotelPictureIds.value)
 }
 
-const handleHotelPictureRemove = (file) => {
-  const urlIndex = form.value.picture_url.findIndex(url => file.url === url);
+const handleHotelPictureRemove = async (file) => {
+  const urlIndex = form.value.picture_url.findIndex(url => file.response.fileUrl === url);
+  await hotel.deletePicture(file.response.id)
   if (urlIndex !== -1) {
     form.value.picture_url.splice(urlIndex, 1);
   }
 }
-
 const mapLocation = (location) => {
   MapContainerRef.value.handleInput(location);
 }
